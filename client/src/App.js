@@ -1,18 +1,20 @@
-import React from "react";
-import { Router, Route } from "react-router-dom";
-import Dashboard from "./Pages/Dashboard";
-import Login from "./Pages/Login";
+import React from 'react'
+import {Router,Route} from "react-router-dom"
+import Dashboard from './Pages/Dashboard'
+import Login from './Pages/Login'
+
 
 const App = () => {
   return (
     <Router>
-      <Route path="/dashboard" Component={Dashboard} />
-      <Route path="/login" e Component={Login} />      
-      
-              <Dashboard />
-      <Login />
-    </Router>
-  );
-};
+<Route path='/dashboard' Component={Dashboard}/>
+<Route path='/login' Component={Login}/>
 
-export default App;
+<Dashboard/>
+<Login/>
+
+
+    </Router>
+  
+  )
+}
