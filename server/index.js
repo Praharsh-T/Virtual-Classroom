@@ -5,10 +5,12 @@ const app = express();
 app.use(cors());
 const PORT = process.env.PORT || 5000;
 app.use(express.json());
-const connectToPostgress = require("./db/connect");
+const { connectToPostgress, client } = require("./db/connect");
 connectToPostgress();
-app.get("/", (req, res) => {
-  res.json("Hii");
+
+app.get("/", async (req, res) => {
+  const data = await client.query("SELECT *FROM USERS");
+  res.json(data.rows);
 });
 app.listen(5000, () => {
   console.log(`SERVER RUNNING ON PORT ${PORT}`);

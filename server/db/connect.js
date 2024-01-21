@@ -12,4 +12,4 @@ const connectToPostgress = async () => {
     console.log("CLIENT CONNECTTION ERROR", e);
   }
 };
-module.exports = connectToPostgress;
+module.exports = { connectToPostgress, client };
