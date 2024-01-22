@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { getUserByMailAndName, addNewUser } = require("../scripts/userQuery");
 const { getToken } = require("../../utils/token");
 
-router.post("/login-through-google", async (req, res) => {
+router.post("/login", async (req, res) => {
   const { email, userName } = req.body;
   if (!email || !userName) {
     return res.json({ success: false, fetchError: "Invalid Credential!!" });
