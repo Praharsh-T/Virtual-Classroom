@@ -37,7 +37,7 @@ const Login = () => {
       if (resJSON.success) {
         alert("SUCCESS");
       } else {
-        alert("FAILED");
+        alert("ERROR:", resJSON.fetchError);
       }
     });
   }, [user]);
