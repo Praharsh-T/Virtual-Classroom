@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 const FETCH_BASE_URL = process.env.REACT_APP_FETCH_BASE_URL;
 const Login = () => {
-  const [user, setUser] = useState([]);
+  const [loginProgress, setLoginProgress] = useState(null);
   const navigate = useNavigate();
   const login = useGoogleLogin({
-    onSuccess: (response) => setUser(response),
+    onSuccess: (response) => {
+      handleUserDetails(response);
+    },
     onError: (error) => handleEror(error),
   });
 
-  const handleLoginSuceess = ({ token, username }) => {
-    localStorage.setItem("authToken", token);
-    localStorage.setItem("userName", username);
-    navigate("/home");
-  };
-  useEffect(() => {
+  async function handleUserDetails(user) {
     fetch(
       `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
       {
@@ -26,8 +23,8 @@ const Login = () => {
       }
     ).then(async (res) => {
       const jsonData = await res.json();
-      console.log(jsonData);
       if (jsonData.error) return;
+      setLoginProgress("Please wait verifying your Information...");
       const serverRES = await fetch(`${FETCH_BASE_URL}/user/login`, {
         method: "POST",
         headers: {
@@ -40,18 +37,26 @@ const Login = () => {
       });
       const resJSON = await serverRES.json();
       if (resJSON.success) {
-        handleLoginSuceess(resJSON);
+        handleLoginSuceess({ ...resJSON, picture: jsonData.picture });
+        setLoginProgress("Login Successfull!!");
       } else {
-        alert("ERROR:", resJSON.fetchError);
+        setLoginProgress("Something went Wrong . PLEASE TRY AGAIN !");
       }
     });
-  }, [user]);
+  }
+  function handleLoginSuceess({ token, username, picture }) {
+    localStorage.setItem("authToken", token);
+    localStorage.setItem("userName", username);
+    localStorage.setItem("picture", picture);
+    navigate("/home");
+  }
 
   const handleEror = async (err) => {
     console.log("ERR" + err);
   };
   return (
     <div>
+      {loginProgress && <div>{loginProgress}</div>} {/* login error details */}
       <button onClick={login}>Login</button>
     </div>
   );

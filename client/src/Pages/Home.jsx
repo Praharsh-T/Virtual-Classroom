@@ -1,11 +1,18 @@
 import React from "react";
-import Profile from "../Components/Profile";
+import Navbar from "../Components/Navbar";
+import { Link } from "react-router-dom";
 function Home() {
   return (
     <div>
       <div>Home</div>
       WELCOME
-      <Profile />
+      <Navbar />
+      <div>
+        <Link to="/create-class">Create Class</Link>
+      </div>
+      <div>
+        <Link to="/join-class">Join Class</Link>
+      </div>
     </div>
   );
 }
