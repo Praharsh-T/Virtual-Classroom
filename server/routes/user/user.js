@@ -1,6 +1,7 @@
-const router = require("express").Router();
-const { getUserByMailAndName, addNewUser } = require("../scripts/userQuery");
-const { getToken } = require("../../utils/token");
+import express from "express";
+const router = express.Router();
+import { createToken } from "../../utils/token.js";
+import { getUserByMailAndName, addNewUser } from "../scripts/userQuery.js";
 
 router.post("/login", async (req, res) => {
   const { email, username } = req.body;
@@ -12,7 +13,7 @@ router.post("/login", async (req, res) => {
 
   if (fetchedUser) {
     const { email, username, id } = fetchedUser;
-    const token = getToken(email, username, id);
+    const token = createToken(email, username, id);
     return res.json({ success: true, token, username });
   }
 
@@ -20,7 +21,7 @@ router.post("/login", async (req, res) => {
 
   if (newUser) {
     const { email, username, id } = newUser;
-    const token = getToken(email, username, id);
+    const token = createToken(email, username, id);
 
     return res.json({ success: true, token, username });
   }
@@ -28,4 +29,4 @@ router.post("/login", async (req, res) => {
   return res.json({ success: false, fetchError: "Internal Server ERROR!!" });
 });
 
-module.exports = router;
+export default router;

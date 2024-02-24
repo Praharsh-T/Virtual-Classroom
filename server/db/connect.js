@@ -1,13 +1,15 @@
-const { Pool } = require("pg");
-const POSTGRESS_URL = process.env.POSTGRESS_CONNECTION_STRING;
-const pool = new Pool({
+import pg from "pg";
+const { Pool } = pg;
+const POSTGRESS_URL = process.env.POSTGRES_CONNECTION_STRING;
+
+export const pool = new Pool({
   connectionString: POSTGRESS_URL,
 });
-const connectToPostgress = async () => {
+
+export const connectToPostgress = async () => {
   try {
     console.log("CONNECTED TO DATABASE");
   } catch (e) {
     console.log("CLIENT CONNECTTION ERROR", e);
   }
 };
-module.exports = { connectToPostgress, pool };

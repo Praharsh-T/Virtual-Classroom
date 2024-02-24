@@ -1,11 +1,11 @@
-const { pool } = require("../../db/connect");
+import { pool } from "../../db/connect.js";
 
-const {
+import {
   addUserQuery,
   getUserQueryByEmailAndName,
-} = require("../../query/loginQuery");
+} from "../../query/loginQuery.js";
 
-const getUserByMailAndName = async (email, userName) => {
+export const getUserByMailAndName = async (email, userName) => {
   try {
     const user = await pool.query(getUserQueryByEmailAndName, [
       email,
@@ -21,7 +21,7 @@ const getUserByMailAndName = async (email, userName) => {
   }
 };
 
-const addNewUser = async (email, userName) => {
+export const addNewUser = async (email, userName) => {
   try {
     const user = await pool.query(addUserQuery, [email, userName]);
 
@@ -34,5 +34,3 @@ const addNewUser = async (email, userName) => {
     return null;
   }
 };
-
-module.exports = { getUserByMailAndName, addNewUser };
