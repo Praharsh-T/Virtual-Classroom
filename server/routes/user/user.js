@@ -12,16 +12,16 @@ router.post("/login", async (req, res) => {
   const fetchedUser = await getUserByMailAndName(email, username);
 
   if (fetchedUser) {
-    const { email, username, id } = fetchedUser;
-    const token = createToken(email, username, id);
+    const { email, username, userid } = fetchedUser;
+    const token = createToken(email, username, userid);
     return res.json({ success: true, token, username });
   }
 
   const newUser = await addNewUser(email, username);
 
   if (newUser) {
-    const { email, username, id } = newUser;
-    const token = createToken(email, username, id);
+    const { email, username, userid } = newUser;
+    const token = createToken(email, username, userid);
 
     return res.json({ success: true, token, username });
   }
