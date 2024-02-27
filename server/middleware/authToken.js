@@ -6,6 +6,12 @@ export function validateToken(req, res, next) {
     req.body.userInfo = decodedInfo;
     next();
   } else {
-    res.status(498).send({ success: false, fetchError: "Invalid Token!!" });
+    res
+      .status(498)
+      .send({
+        success: false,
+        fetchError: "Invalid Token!!",
+        tokenError: true,
+      });
   }
 }

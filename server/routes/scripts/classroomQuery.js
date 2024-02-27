@@ -1,5 +1,8 @@
 import { pool } from "../../db/connect.js";
 import {
+  addUserToClassroomQuery,
+  checkUserExistINClassroomQuery,
+  checkValidClassRoomQuery,
   createNewClassRoomQuery,
   getClassesForLeadersQuery,
 } from "../../query/classroomQuery.js";
@@ -34,4 +37,46 @@ export const getClassesForLeaders = async (classroomLeaderid) => {
   }
 };
 
+export const addUserToTheClass = async (userid, classroomid) => {
+  try {
+    const alreadyJoined = await pool.query(checkUserExistINClassroomQuery, [
+      userid,
+      classroomid,
+    ]);
 
+    if (alreadyJoined && alreadyJoined.rows.length) {
+      return {
+        success: true,
+        row: alreadyJoined.rows[0],
+        warn: "Already Enrolled to the class",
+      };
+    }
+    const joinNow = await pool.query(addUserToClassroomQuery, [
+      userid,
+      classroomid,
+    ]);
+    if (joinNow && joinNow.rows.length) {
+      return { success: true, row: joinNow.rows[0] };
+    }
+    return { success: false, fetchError: "SERVER ERROR" };
+  } catch (e) {
+    console.log("ERROR: ", e);
+    return { success: false, fetchError: "SERVER ERROR" };
+  }
+};
+
+export const checkValidClassRoom = async (classroomid, classroomname) => {
+  try {
+    const classroom = await pool.query(checkValidClassRoomQuery, [
+      classroomid,
+      classroomname,
+    ]);
+    if (classroom && classroom.rows.length) {
+      return { valid: true };
+    }
+    return { valid: false };
+  } catch (e) {
+    console.log("ERROR: ", e);
+    return { valid: false, fetchError: "SERVER ERROR" };
+  }
+};
