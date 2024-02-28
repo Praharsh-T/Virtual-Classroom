@@ -6,6 +6,7 @@ import Home from "./Pages/Home";
 import CreateClass from "./Pages/CreateClass";
 import OwnedClasses from "./Pages/OwnedClasses";
 import JoinClass from "./Pages/JoinClass";
+import JoinedClasses from './Pages/JoinedClasses';
 const App = () => {
   return (
     <BrowserRouter>
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/create-class" element={<CreateClass />} />
         <Route path="/leader/my-classes" element={<OwnedClasses />} />
+        <Route path="/user/joined-classes" element={<JoinedClasses />} />
         <Route path="/:classroomName/:classroomid" element={<JoinClass />} />
       </Routes>
     </BrowserRouter>

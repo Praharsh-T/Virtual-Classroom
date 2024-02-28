@@ -5,6 +5,7 @@ import {
   checkValidClassRoomQuery,
   createNewClassRoomQuery,
   getClassesForLeadersQuery,
+  getJoinedClassesQuery,
 } from "../../query/classroomQuery.js";
 
 export const createNewClassRoom = async (classroomName, classroomLeaderid) => {
@@ -80,3 +81,17 @@ export const checkValidClassRoom = async (classroomid, classroomname) => {
     return { valid: false, fetchError: "SERVER ERROR" };
   }
 };
+
+export const getJoinedClasses = async (userId)=>{
+  try{
+    const joinedClasses = await pool.query(getJoinedClassesQuery,[userId]);
+    if(joinedClasses && joinedClasses.rows){
+      return joinedClasses.rows;
+    } else {
+      return null;
+    }
+  }catch(e){
+    console.log("ERROR"+e);
+    return null;
+  }
+}

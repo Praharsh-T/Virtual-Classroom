@@ -5,6 +5,7 @@ import {
   checkValidClassRoom,
   createNewClassRoom,
   getClassesForLeaders,
+  getJoinedClasses,
 } from "../scripts/classroomQuery.js";
 const router = express.Router();
 
@@ -44,12 +45,12 @@ router.post("/check-valid-class", validateToken, async (req, res) => {
 });
 
 router.get("/student/getclasses", validateToken, async (req, res) => {
-  //   const classes = await getClassesForLeaders(req.body.userInfo.email);
-  //   if (classes) {
-  //     return res.json({ success: true, classes });
-  //   } else {
-  //     res.json({ success: false, fetchError: "Server error" });
-  //   }
+    const classes = await getJoinedClasses(req.body.userInfo.userid);
+    if (classes) {
+      return res.json({ success: true, classes });
+    } else {
+      res.json({ success: false, fetchError: "Server error" });
+    }
 });
 
 export default router;
