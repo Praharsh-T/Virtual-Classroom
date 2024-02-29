@@ -7,6 +7,7 @@ import CreateClass from "./Pages/CreateClass";
 import OwnedClasses from "./Pages/OwnedClasses";
 import JoinClass from "./Pages/JoinClass";
 import JoinedClasses from './Pages/JoinedClasses';
+import "./index.css"
 const App = () => {
   return (
     <BrowserRouter>
