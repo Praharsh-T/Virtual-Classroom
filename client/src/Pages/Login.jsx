@@ -37,17 +37,22 @@ const Login = () => {
       });
       const resJSON = await serverRES.json();
       if (resJSON.success) {
-        handleLoginSuceess({ ...resJSON, picture: jsonData.picture });
+        handleLoginSuceess({
+          ...resJSON,
+          picture: jsonData.picture,
+          email: jsonData.email,
+        });
         setLoginProgress("Login Successfull!!");
       } else {
         setLoginProgress("Something went Wrong . PLEASE TRY AGAIN !");
       }
     });
   }
-  function handleLoginSuceess({ token, username, picture }) {
+  function handleLoginSuceess({ token, username, picture, email }) {
     localStorage.setItem("authToken", token);
     localStorage.setItem("userName", username);
     localStorage.setItem("picture", picture);
+    localStorage.setItem("email", email);
     navigate("/home");
   }
 
