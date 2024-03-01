@@ -12,12 +12,6 @@ function Home() {
       <Navbar />
 
       <Sidebar />
-      {/* <div>
-        <Link to="/create-class">Create Class</Link>
-      </div>
-      <div>
-        <Link to="/join-class">Join Class</Link>
-      </div> */}
     </div>
     
   );
