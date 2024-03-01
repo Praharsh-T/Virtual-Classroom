@@ -14,7 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/home/*" element={<Home />} />
         <Route path="/create-class" element={<CreateClass />} />
         <Route path="/leader/my-classes" element={<OwnedClasses />} />
         <Route path="/user/joined-classes" element={<JoinedClasses />} />

@@ -1,15 +1,14 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
-import { Link } from "react-router-dom";
-
 import Sidebar from "../Components/Sidebar";
 
 function Home() {
+  function openSideBar() {
+    console.log("open");
+  }
   return (
     <div>
-      <div>Home</div>
-      WELCOME
-      <Navbar />
+      <Navbar openSideBar={openSideBar} />
       <Sidebar />
     </div>
   );
