@@ -1,13 +1,16 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
 import { Link } from "react-router-dom";
-import Dashboard from "./Dashboard";
+
 function Home() {
   return (
     <div>
       <div>Home</div>
       WELCOME
       <Navbar />
+      <div>
+        
+      </div>
       <div>
         <Link to="/create-class">Create Class</Link>
       </div>
@@ -19,5 +22,5 @@ function Home() {
     
   );
 }
-
+            
 export default Home;
