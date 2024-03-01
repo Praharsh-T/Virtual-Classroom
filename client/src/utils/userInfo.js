@@ -8,7 +8,16 @@ export const getAuthToken = () => {
   return token;
 };
 
+export const getEmail = () => {
+  const email = localStorage.getItem("email");
+  return email;
+};
+
 export const getUserProfile = () => {
   const userProfile = localStorage.getItem("picture");
   return userProfile;
+};
+
+export const logOut = () => {
+  localStorage.clear();
 };
