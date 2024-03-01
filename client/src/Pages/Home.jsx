@@ -10,10 +10,8 @@ function Home() {
       <div>Home</div>
       WELCOME
       <Navbar />
-
       <Sidebar />
     </div>
-    
   );
 }
             
