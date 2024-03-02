@@ -34,11 +34,12 @@ function CreateClass() {
       alert("Could not create class");
     }
   }
-  return (
-    <section class="grid h-screen place-content-center bg-blue-400 text-slate-300">
+  return (   
+    <section class="grid h-screen place-content-center bg-blue-300 text-slate-300 ">
+     
     <div class=" gap-8 flex items-center h-screen">
         <div class="mb-10 text-center text-blue-950">
-    <h1 class="text-5xl font-bold tracking-widest animate-pulse">CREATE CLASS</h1>
+    <h1 class="text-5xl font-bold tracking-widest ">CREATE CLASS →</h1>
     <p><span class="font-bold">__________________________________</span></p>
   </div>
       <form>
@@ -64,6 +65,7 @@ function CreateClass() {
       </form>
       </div>
       </section>
+     
 )};
 
  
