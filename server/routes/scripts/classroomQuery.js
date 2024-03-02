@@ -10,6 +10,7 @@ import {
   getJoinedClassesQuery,
   incremntStudentCount,
 } from "../../query/classroomQuery.js";
+import { uploadFileToClassroomQuery } from "../../query/fileQuery.js";
 
 export const createNewClassRoom = async (classroomName, classroomLeaderid) => {
   try {
@@ -119,6 +120,27 @@ export const createMSGTableForClassRoom = async ({ name, id }) => {
     return true;
   } catch (e) {
     console.log("MSG TABLE ERROR" + e);
+    return false;
+  }
+};
+
+export const uploadFileToClassroom = async (
+  tableName,
+  fileName,
+  fileType,
+  fileDescription,
+  fileContent
+) => {
+  try {
+    await pool.query(uploadFileToClassroomQuery(tableName), [
+      fileName,
+      fileType,
+      fileDescription,
+      fileContent,
+    ]);
+    return true;
+  } catch (e) {
+    console.log("FILE TABLE ERROR" + e);
     return false;
   }
 };

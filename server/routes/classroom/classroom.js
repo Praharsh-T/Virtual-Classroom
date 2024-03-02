@@ -1,5 +1,6 @@
 import express from "express";
 import { validateToken } from "../../middleware/authToken.js";
+import fs from "fs";
 import {
   addUserToTheClass,
   checkValidClassRoom,
@@ -8,8 +9,11 @@ import {
   createNewClassRoom,
   getClassesForLeaders,
   getJoinedClasses,
+  uploadFileToClassroom,
 } from "../scripts/classroomQuery.js";
 const router = express.Router();
+import multer from "multer";
+const upload = multer({ dest: "uploads/" });
 
 router.post("/create", validateToken, async (req, res) => {
   const classRoomInfo = await createNewClassRoom(
@@ -58,12 +62,30 @@ router.post("/check-valid-class", validateToken, async (req, res) => {
 });
 
 router.get("/student/getclasses", validateToken, async (req, res) => {
-    const classes = await getJoinedClasses(req.body.userInfo.userid);
-    if (classes) {
-      return res.json({ success: true, classes });
-    } else {
-      res.json({ success: false, fetchError: "Server error" });
-    }
+  const classes = await getJoinedClasses(req.body.userInfo.userid);
+  if (classes) {
+    return res.json({ success: true, classes });
+  } else {
+    res.json({ success: false, fetchError: "Server error" });
+  }
 });
 
+router.post(
+  "/uploadFile",
+  validateToken,
+  upload.single("file"),
+  async (req, res) => {
+    const fileContent = fs.readFileSync(req.file.path, "utf-8");
+    console.log(fileContent);
+    const tableName = "FILE" + req.body.classroomName + req.body.classroomid;
+    const uploadStatus = await uploadFileToClassroom(
+      tableName,
+      req.body.fileName,
+      req.body.fileType,
+      req.body.fileDescription,
+      fileContent
+    );
+    res.json({ success: uploadStatus });
+  }
+);
 export default router;
