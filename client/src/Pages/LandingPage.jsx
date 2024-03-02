@@ -1,16 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { DialogBox } from '../Components/LandingPageComponent/DialogBox'
 
 
 function Dashboard() {
   return (
  <div>
-  <div class="bg-slate-900">
-  <div class="bg-gradient-to-b from-violet-600/[.15] via-transparent">
+  <div class="bg-slate-900 h-screen w-screen ">
+  <div class="bg-gradient-to-b  from-violet-600/[.15] via-transparent">
     <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-8">
      
       <div class="flex justify-center">
-        <a class="group inline-block bg-white/[.05] hover:bg-white/[.1] border border-white/[.05] p-1 ps-4 rounded-full shadow-md" href="../figma.html">
+        <Link to="/home" class="group inline-block bg-white/[.05] hover:bg-white/[.1] border border-white/[.05] p-1 ps-4 rounded-full shadow-md" href="../figma.html">
           <p class="me-2 inline-block text-white text-sm">
            JOIN CLASSES NOW
           </p>
@@ -19,18 +20,18 @@ function Dashboard() {
               <path d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </span>
-        </a>
+        </Link>
       </div>
    
-      <div class="max-w-3xl text-center mx-auto">
-        <h1 class="block font-medium text-2xl text-gray-200  sm:text-5xl md:text-6xl lg:text-7xl">
+      <div class="max-w-3xl text-center  mx-auto animate-pulse">
+        <h1 class="block font-medium text-2xl text-gray-200  sm:text-5xl md:text-6xl lg:text-9xl ">
           VIRTUAL DESK
         </h1>
       </div>
       
 
       <div class="max-w-3xl text-center mx-auto">
-        <p class="text-lg text-gray-400">Organize, collaborate, and learn together on Virtual Desk</p>
+        <p class="text-xl text-white">Organize, collaborate, and learn together on Virtual Desk</p>
       </div>
 
    

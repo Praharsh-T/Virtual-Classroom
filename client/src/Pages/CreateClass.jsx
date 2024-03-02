@@ -57,6 +57,7 @@ function CreateClass() {
           </button>
         </div>
       </form>
+      
     </div>
   );
 }
