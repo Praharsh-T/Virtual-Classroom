@@ -15,8 +15,8 @@ function Home() {
       <Sidebar />
       {/* <div>
       </div> */}
-      <div class="p-4 sm:ml-64">
-        <div class="p-4 mt-12 rounded-lg dark:border-gray-700">
+      <div class="p-4  sm:ml-64">
+        <div class="p-4 mt-12  rounded-lg dark:border-gray-700">
           <Routes>
             <Route path="/leader/my-classes" element={<OwnedClasses />} />
             <Route path="/user/joined-classes" element={<JoinedClasses />} />
