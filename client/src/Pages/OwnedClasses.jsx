@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getAuthToken } from "../utils/userInfo";
-import { json, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import ClassroomBadge from "../Components/ClassroomBadge";
 import { getOwnedClasses, setOwnedClasses } from "../utils/classInfo";

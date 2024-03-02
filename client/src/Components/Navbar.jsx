@@ -27,6 +27,7 @@ function Navbar({ openSideBar }) {
                 ></path>
               </svg>
             </button>
+
             <a class="flex ms-2 md:me-24">
               <img
                 src="https://flowbite.com/docs/images/logo.svg"
@@ -36,7 +37,7 @@ function Navbar({ openSideBar }) {
               <span class="self-center text-xl  font-semibold font-mono sm:text-2xl whitespace-nowrap dark:text-white">
                 Virtual Desk
               </span>
-            </a>
+              </a>
           </div>
           <Profile />
         </div>
