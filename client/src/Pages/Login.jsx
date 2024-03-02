@@ -24,7 +24,16 @@ const Login = () => {
     ).then(async (res) => {
       const jsonData = await res.json();
       if (jsonData.error) return;
-      setLoginProgress("Please wait verifying your Information...");
+      setLoginProgress(<div class="fixed top-0 left-0 w-full h-full bg-white bg-opacity-50 flex justify-center items-center z-50">
+      <div
+        class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+        role="status">
+        <span
+          class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+        >Loading...</span
+      >
+      </div>
+    </div>);
       const serverRES = await fetch(`${FETCH_BASE_URL}/user/login`, {
         method: "POST",
         headers: {
@@ -63,9 +72,9 @@ const Login = () => {
     <div>
       {loginProgress && <div>{loginProgress}</div>} {/* login error details */}
       {/* <button>Login</button> */}
-      <div class="flex items-center justify-center h-screen bg-cover " style={{ backgroundImage: `url('/images/login.jpg')` }}> 
-      <img src="" alt="" /> 
-<div class="flex flex-col w-full max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
+      <div class="flex items-center justify-center h-screen bg-cover  " style={{ backgroundImage: `url('/images/login.jpg')` }}> 
+      
+<div class="flex flex-col w-full max-w-md px-4 py-8  bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
     <div class="self-center mb-6 text-xl font-light text-gray-600 sm:text-2xl dark:text-white">
         Login To Your Account
     </div>

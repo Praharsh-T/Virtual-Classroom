@@ -2,57 +2,37 @@ import React from 'react'
 
 export default function Hero() {
   return (
-    <div>
-      <div class="flex-wrap items-center justify-center gap-8 text-center sm:flex">
-    <div class="w-full px-4 py-4 mt-6 bg-white rounded-lg shadow-lg sm:w-1/2 md:w-1/2 lg:w-1/4 dark:bg-gray-800">
-        <div class="flex-shrink-0">
-            <div class="flex items-center justify-center w-12 h-12 mx-auto text-white bg-indigo-500 rounded-md">
-                <svg width="20" height="20" fill="currentColor" class="w-6 h-6" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M491 1536l91-91-235-235-91 91v107h128v128h107zm523-928q0-22-22-22-10 0-17 7l-542 542q-7 7-7 17 0 22 22 22 10 0 17-7l542-542q7-7 7-17zm-54-192l416 416-832 832h-416v-416zm683 96q0 53-37 90l-166 166-416-416 166-165q36-38 90-38 53 0 91 38l235 234q37 39 37 91z">
-                    </path>
-                </svg>
-            </div>
+    <div class="container mx-auto my-8 space-y-10">
+
+    <h1 class="text-center font-bold text-3xl my-10 text-gray-800 font-mono">Empty State Components Collection</h1>
+    <div class="max-w-4xl mx-auto px-10 py-4 bg-white rounded-lg shadow-lg">
+      <div>
+        <span
+          class="bg-green-100 font-mono text-green-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Blank
+          Slate Empty State</span>
+      </div>
+      <div class="flex flex-col justify-center py-12 items-center">
+  
+        <div class="flex justify-center items-center">
+          <img class="w-64 h-64"
+            src="https://res.cloudinary.com/daqsjyrgg/image/upload/v1690257804/jjqw2hfv0t6karxdeq1s.svg"
+            alt="image empty states"/>
         </div>
-        <h3 class="py-4 text-2xl font-semibold text-gray-700 sm:text-xl dark:text-white">
-            Website Design
-        </h3>
-        <p class="py-4 text-gray-500 text-md dark:text-gray-300">
-            Encompassing today’s website design technology to integrated and build solutions relevant to your business.
-        </p>
-    </div>
-    <div class="w-full px-4 py-4 mt-6 bg-white rounded-lg shadow-lg sm:w-1/2 md:w-1/2 lg:w-1/4 sm:mt-16 md:mt-20 lg:mt-24 dark:bg-gray-800">
-        <div class="flex-shrink-0">
-            <div class="flex items-center justify-center w-12 h-12 mx-auto text-white bg-indigo-500 rounded-md">
-                <svg width="20" height="20" fill="currentColor" class="w-6 h-6" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M491 1536l91-91-235-235-91 91v107h128v128h107zm523-928q0-22-22-22-10 0-17 7l-542 542q-7 7-7 17 0 22 22 22 10 0 17-7l542-542q7-7 7-17zm-54-192l416 416-832 832h-416v-416zm683 96q0 53-37 90l-166 166-416-416 166-165q36-38 90-38 53 0 91 38l235 234q37 39 37 91z">
-                    </path>
-                </svg>
-            </div>
+        <h1 class="text-gray-700 font-medium text-2xl text-center mb-3">Create a Project and get organized!</h1>
+        <p class="text-gray-500 text-center mb-6">Project are the backbones of time entry categorization in your
+          workspace.</p>
+        <div class="flex flex-col justify-center">
+          <button class="flex items-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6  mr-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Create New Project
+          </button>
+          <a href="#" class="underline mt-4 text-sm font-light mx-auto">Learn more</a>
         </div>
-        <h3 class="py-4 text-2xl font-semibold text-gray-700 sm:text-xl dark:text-white">
-            Branding
-        </h3>
-        <p class="py-4 text-gray-500 text-md dark:text-gray-300">
-            Share relevant, engaging, and inspirational brand messages to create a connection with your audience.
-        </p>
+      </div>
     </div>
-    <div class="w-full px-4 py-4 mt-6 bg-white rounded-lg shadow-lg sm:w-1/2 md:w-1/2 lg:w-1/4 dark:bg-gray-800">
-        <div class="flex-shrink-0">
-            <div class="flex items-center justify-center w-12 h-12 mx-auto text-white bg-indigo-500 rounded-md">
-                <svg width="20" height="20" fill="currentColor" class="w-6 h-6" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M491 1536l91-91-235-235-91 91v107h128v128h107zm523-928q0-22-22-22-10 0-17 7l-542 542q-7 7-7 17 0 22 22 22 10 0 17-7l542-542q7-7 7-17zm-54-192l416 416-832 832h-416v-416zm683 96q0 53-37 90l-166 166-416-416 166-165q36-38 90-38 53 0 91 38l235 234q37 39 37 91z">
-                    </path>
-                </svg>
-            </div>
-        </div>
-        <h3 class="py-4 text-2xl font-semibold text-gray-700 sm:text-xl dark:text-white">
-            SEO Marketing
-        </h3>
-        <p class="py-4 text-gray-500 text-md dark:text-gray-300">
-            Let us help you level up your search engine game, explore our solutions for digital marketing for your business.
-        </p>
-    </div>
-</div>
     </div>
   )
 }

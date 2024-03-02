@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { DialogBox } from '../Components/LandingPageComponent/DialogBox'
+
 
 
 function Dashboard() {
@@ -12,7 +12,7 @@ function Dashboard() {
     <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-8">
      
       <div class="flex justify-center">
-        <Link to="/home" class="group inline-block bg-white/[.05] hover:bg-white/[.1] border border-white/[.05] p-1 ps-4 rounded-full shadow-md" >
+        <Link to="/Login" class="group inline-block bg-white/[.05] hover:bg-white/[.1] border border-white/[.05] p-1 ps-4 rounded-full shadow-md" >
           <p class="me-2 inline-block text-black text-sm">
            JOIN CLASSES NOW
           </p>

@@ -6,6 +6,7 @@ import OwnedClasses from "./OwnedClasses";
 import JoinedClasses from "./JoinedClasses";
 
 
+
 function Home() {
   function openSideBar() {
     console.log("open");
@@ -21,8 +22,8 @@ function Home() {
           <Routes>
             <Route path="/leader/my-classes" element={<OwnedClasses />} />
             <Route path="/user/joined-classes" element={<JoinedClasses />} />
-            
           </Routes>
+         
         </div>
       </div>
     </div>

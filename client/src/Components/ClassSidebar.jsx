@@ -31,6 +31,7 @@ import {
   Bars3Icon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 export function ClassSidebar() {
   const [open, setOpen] = React.useState(0);
@@ -65,15 +66,9 @@ export function ClassSidebar() {
               alt="brand"
               className="h-8 w-8"
             />
-            <Typography variant="h5" color="blue-gray">
-              Sidebar
+            <Typography variant="h5"className="font-serif" color="blue-gray">
+              VIRTUAL CLASSROOM
             </Typography>
-          </div>
-          <div className="p-2">
-            <Input
-              icon={<MagnifyingGlassIcon className="h-5 w-5" />}
-              label="Search"
-            />
           </div>
           <List>
             <Accordion
@@ -87,16 +82,43 @@ export function ClassSidebar() {
                 />
               }
             >
-              <ListItem className="p-0" selected={open === 1}>
+               <ListItem className="p-5" selected={open === 1}>
+               <Link to="/home"><AccordionHeader
+                  onClick={() => handleOpen(1)}
+                  className="border-b-0 p-3"
+                >
+                  <ListItemPrefix>
+                    <PresentationChartBarIcon className="h-5  w-5" />
+                  </ListItemPrefix>
+                  <Typography color="blue-gray" className="mr-auto font-2xl font-semibold">
+                   HOME
+                  </Typography>
+                </AccordionHeader>
+                </Link>
+              </ListItem>
+            </Accordion>
+            
+            <Accordion
+              open={open === 2}
+              icon={
+                <ChevronDownIcon
+                  strokeWidth={2.5}
+                  className={`mx-auto h-4 w-4 transition-transform ${
+                    open === 2 ? "rotate-180" : ""
+                  }`}
+                />
+              }
+            >
+              <ListItem className="p-5" selected={open === 1}>
                 <AccordionHeader
                   onClick={() => handleOpen(1)}
                   className="border-b-0 p-3"
                 >
                   <ListItemPrefix>
-                    <PresentationChartBarIcon className="h-5 w-5" />
+                    <PresentationChartBarIcon className="h-5  w-5" />
                   </ListItemPrefix>
-                  <Typography color="blue-gray" className="mr-auto font-normal">
-                    Dashboard
+                  <Typography color="blue-gray" className="mr-auto font-2xl font-semibold">
+                    PEOPLE
                   </Typography>
                 </AccordionHeader>
               </ListItem>
@@ -112,7 +134,32 @@ export function ClassSidebar() {
                 />
               }
             >
-              <ListItem className="p-0" selected={open === 2}>
+                <ListItem className="p-5" selected={open === 1}>
+                <AccordionHeader
+                  onClick={() => handleOpen(1)}
+                  className="border-b-0 p-3"
+                >
+                  <ListItemPrefix>
+                    <PresentationChartBarIcon className="h-5  w-5" />
+                  </ListItemPrefix>
+                  <Typography color="blue-gray" className="mr-auto font-2xl font-semibold">
+                    CHAT
+                  </Typography>
+                </AccordionHeader>
+              </ListItem>
+            </Accordion>
+            <Accordion
+              open={open === 2}
+              icon={
+                <ChevronDownIcon
+                  strokeWidth={2.5}
+                  className={`mx-auto h-4 w-4 transition-transform ${
+                    open === 2 ? "rotate-180" : ""
+                  }`}
+                />
+              }
+            >
+              <ListItem className="p-5" selected={open === 2}>
                 <AccordionHeader
                   onClick={() => handleOpen(2)}
                   className="border-b-0 p-3"
@@ -120,16 +167,16 @@ export function ClassSidebar() {
                   <ListItemPrefix>
                     <ShoppingBagIcon className="h-5 w-5" />
                   </ListItemPrefix>
-                  <Typography color="blue-gray" className="mr-auto font-normal">
-                    E-Commerce
+                  <Typography color="blue-gray" className="mr-auto font-normal font-2xl font-semibol">
+                    CLASSWORK
                   </Typography>
                 </AccordionHeader>
               </ListItem>
             </Accordion>
-            <hr className="my-2 border-blue-gray-50" />
+            <hr className="my-2  border-blue-gray-50" />
             <ListItem>
               <ListItemPrefix>
-                <InboxIcon className="h-5 w-5" />
+                <InboxIcon className="h-5  w-5" />
               </ListItemPrefix>
               Inbox
               <ListItemSuffix>
@@ -168,11 +215,10 @@ export function ClassSidebar() {
           >
             <CubeTransparentIcon className="mb-4 h-12 w-12" />
             <Typography variant="h6" className="mb-1">
-              Upgrade to PRO
+              WANT TO CREATE A NEW CLASS?
             </Typography>
             <Typography variant="small" className="font-normal opacity-80">
-              Upgrade to Material Tailwind PRO and get even more components,
-              plugins, advanced features and premium.
+              CLick here to Create a new Class
             </Typography>
             <div className="mt-4 flex gap-3">
               <Typography
@@ -190,7 +236,7 @@ export function ClassSidebar() {
                 variant="small"
                 className="font-medium"
               >
-                Upgrade Now
+                Create Now
               </Typography>
             </div>
           </Alert>
