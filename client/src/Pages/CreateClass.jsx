@@ -35,11 +35,16 @@ function CreateClass() {
     }
   }
   return (
-    <div class="flex items-center justify-center h-screen">
+    <section class="grid h-screen place-content-center bg-blue-400 text-slate-300">
+    <div class=" gap-8 flex items-center h-screen">
+        <div class="mb-10 text-center text-blue-950">
+    <h1 class="text-5xl font-bold tracking-widest animate-pulse">CREATE CLASS</h1>
+    <p><span class="font-bold">__________________________________</span></p>
+  </div>
       <form>
-        <div class="flex gap-4">
+        <div class="flex flex-col items-center justify-center space-y-6">
           <input
-            class="h-9 min-w-[12rem] rounded-lg border-emerald-500 indent-4 text-emerald-900 shadow-lg focus:outline-none focus:ring focus:ring-emerald-600"
+            class="w-80 appearance-none rounded-full border-0 bg-slate-800 p-2 px-4 focus:bg-slate-800 focus:ring-2 focus:ring-orange-500"
             placeholder="Class Name"
             type="text"
             onChange={(e) => {
@@ -51,16 +56,15 @@ function CreateClass() {
           />
           <button
             onClick={handleSubmit}
-            class="h-9 min-w-[8rem] rounded-lg border-2 border-emerald-600 bg-emerald-500 text-emerald-50 shadow-lg hover:bg-emerald-600 focus:outline-none focus:ring focus:ring-emerald-600"
+            class="rounded-full bg-blue-500 p-2 px-4 text-white hover:bg-orange-500"
           >
             Submit
           </button>
         </div>
       </form>
-      
-    </div>
-  );
-}
+      </div>
+      </section>
+)};
 
  
    

@@ -24,14 +24,14 @@ function Dashboard() {
       </div>
    
       <div class="max-w-3xl text-center  mx-auto animate-pulse">
-        <h1 class="block font-medium text-2xl text-gray-200  sm:text-5xl md:text-6xl lg:text-9xl ">
-          VIRTUAL DESK
+        <h1 class="block font-medium font-serif text-2xl text-gray-200  sm:text-5xl md:text-6xl lg:text-9xl ">
+          VIRTUAL CLASSROOM
         </h1>
       </div>
       
 
       <div class="max-w-3xl text-center mx-auto">
-        <p class="text-xl text-white">Organize, collaborate, and learn together on Virtual Desk</p>
+        <p class="text-xl font-serif text-white">Organize, collaborate, and learn together on Virtual Classroom</p>
       </div>
 
    
