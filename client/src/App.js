@@ -5,6 +5,7 @@ import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import CreateClass from "./Pages/CreateClass";
 import JoinClass from "./Pages/JoinClass";
+import ViewClass from "./Pages/ViewClass";
 import "./index.css";
 const App = () => {
   return (
@@ -14,7 +15,11 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/home/*" element={<Home />} />
         <Route path="/create-class" element={<CreateClass />} />
-        <Route path="/:classroomName/:classroomid" element={<JoinClass />} />
+        <Route
+          path="/join/:classroomName/:classroomid"
+          element={<JoinClass />}
+        />
+        <Route path="/:classroomName/:classroomid/*" element={<ViewClass />} />
       </Routes>
     </BrowserRouter>
   );

@@ -85,6 +85,7 @@ router.post(
       req.body.fileDescription,
       fileContent
     );
+    fs.unlinkSync(req.file.path);
     res.json({ success: uploadStatus });
   }
 );
