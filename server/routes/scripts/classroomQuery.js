@@ -3,9 +3,12 @@ import {
   addUserToClassroomQuery,
   checkUserExistINClassroomQuery,
   checkValidClassRoomQuery,
+  createFileTableQuery,
+  createMSGTableQuery,
   createNewClassRoomQuery,
   getClassesForLeadersQuery,
   getJoinedClassesQuery,
+  incremntStudentCount,
 } from "../../query/classroomQuery.js";
 
 export const createNewClassRoom = async (classroomName, classroomLeaderid) => {
@@ -45,6 +48,8 @@ export const addUserToTheClass = async (userid, classroomid) => {
       classroomid,
     ]);
 
+    await pool.query(incremntStudentCount, [classroomid]);
+
     if (alreadyJoined && alreadyJoined.rows.length) {
       return {
         success: true,
@@ -82,16 +87,38 @@ export const checkValidClassRoom = async (classroomid, classroomname) => {
   }
 };
 
-export const getJoinedClasses = async (userId)=>{
-  try{
-    const joinedClasses = await pool.query(getJoinedClassesQuery,[userId]);
-    if(joinedClasses && joinedClasses.rows){
+export const getJoinedClasses = async (userId) => {
+  try {
+    const joinedClasses = await pool.query(getJoinedClassesQuery, [userId]);
+    if (joinedClasses && joinedClasses.rows) {
       return joinedClasses.rows;
     } else {
       return null;
     }
-  }catch(e){
-    console.log("ERROR"+e);
+  } catch (e) {
+    console.log("ERROR" + e);
     return null;
   }
-}
+};
+
+export const createFileTableForClassRoom = async ({ name, id }) => {
+  const tableName = "FILE" + name + id;
+  try {
+    await pool.query(createFileTableQuery(tableName));
+    return true;
+  } catch (e) {
+    console.log("FILE TABLE ERROR" + e);
+    return false;
+  }
+};
+
+export const createMSGTableForClassRoom = async ({ name, id }) => {
+  const tableName = "MSG" + name + id;
+  try {
+    await pool.query(createMSGTableQuery(tableName));
+    return true;
+  } catch (e) {
+    console.log("MSG TABLE ERROR" + e);
+    return false;
+  }
+};

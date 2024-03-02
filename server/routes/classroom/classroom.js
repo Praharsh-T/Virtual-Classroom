@@ -3,6 +3,8 @@ import { validateToken } from "../../middleware/authToken.js";
 import {
   addUserToTheClass,
   checkValidClassRoom,
+  createFileTableForClassRoom,
+  createMSGTableForClassRoom,
   createNewClassRoom,
   getClassesForLeaders,
   getJoinedClasses,
@@ -15,8 +17,19 @@ router.post("/create", validateToken, async (req, res) => {
     req.body.userInfo.userid
   );
   if (classRoomInfo) {
-    return res.json({ success: true, classRoomInfo });
-  } else res.json({ success: false, fetchError: "Server error" });
+    const FILETable = await createFileTableForClassRoom({
+      name: classRoomInfo.classroomname,
+      id: classRoomInfo.classroomid,
+    });
+    const MSGTable = await createMSGTableForClassRoom({
+      name: classRoomInfo.classroomname,
+      id: classRoomInfo.classroomid,
+    });
+
+    if (FILETable && MSGTable)
+      return res.json({ success: true, classRoomInfo });
+  }
+  return res.json({ success: false, fetchError: "Server error" });
 });
 
 router.get("/leader/getclasses", validateToken, async (req, res) => {
