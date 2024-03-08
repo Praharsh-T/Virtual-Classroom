@@ -30,8 +30,8 @@ router.post(
 router.post("/getFile", validateToken, async (req, res) => {
   const tableName = "FILE" + req.body.classroomName + req.body.classroomid;
   const fileid = req.body.fileid;
-  const fileContent = await getFileFromClassRoom(tableName, fileid);
-  res.json({ success: true, fileContent });
+  const fileDetails = await getFileFromClassRoom(tableName, fileid);
+  res.json({ success: true, fileDetails });
 });
 
 export default router;

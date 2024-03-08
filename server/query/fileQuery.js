@@ -5,4 +5,4 @@ export const uploadFileToClassroomQuery = (tableName) =>
 
 // SELECT
 export const getFileFromClassRoomQuery = (tableName) =>
-  `SELECT filecontent FROM ${tableName} WHERE fileid=$1`;
+  `SELECT  *FROM ${tableName} WHERE fileid=$1`;

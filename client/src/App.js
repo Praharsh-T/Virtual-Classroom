@@ -19,7 +19,10 @@ const App = () => {
           path="/join/:classroomName/:classroomid"
           element={<JoinClass />}
         />
-        <Route path="/:classroomName/:classroomid/*" element={<ViewClass />} />
+        <Route
+          path="/class/:classroomName/:classroomid/*"
+          element={<ViewClass />}
+        />
       </Routes>
     </BrowserRouter>
   );

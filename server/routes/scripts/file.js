@@ -6,7 +6,8 @@ export const getFileFromClassRoom = async (tableName, fileid) => {
     const fileContent = await pool.query(getFileFromClassRoomQuery(tableName), [
       fileid,
     ]);
-    return fileContent;
+    
+    return fileContent.rows[0];
   } catch (e) {
     console.log(e);
     return null;

@@ -1,15 +1,21 @@
 import React from "react";
-import { ClassSidebar } from "../Components/ClassSidebar";
 import { Route, Routes } from "react-router-dom";
-import Files from "../Components/class/Files";
+import ViewFile from "../Components/class/ViewFile";
+import Navbar from "../Components/Navbar";
+import Sidebar from "../Components/Sidebar";
 
 function ViewClass() {
   return (
     <div>
-      <ClassSidebar />
-      <Routes>
-        <Route path="/Notes" element={<Files />} />
-      </Routes>
+      <Navbar />
+      <Sidebar />
+      <div class="p-4  sm:ml-64">
+        <div class="p-4 mt-12  rounded-lg dark:border-gray-700">
+          <Routes>
+            <Route path="/notes" element={<ViewFile />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
