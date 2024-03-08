@@ -30,13 +30,13 @@ function FileIcon({ file }) {
       <div
         className={
           viewFile === true
-            ? "overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-screen md:inset-0 "
+            ? "overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-screen md:inset-0 bg-transparent backdrop-blur-sm"
             : "hidden"
         }
       >
         <div class="relative p-4 pt-2 w-full h-full">
-          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 w-full h-full">
-            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600 w-full h-full">
+          <div class="relative rounded-lg shadow w-full h-full">
+            <div class="flex items-center p-4 md:p-5 border border-gray-200 rounded-lg dark:border-gray-600 w-full h-full">
               <button
                 onClick={(e) => {
                   e.stopPropagation();
