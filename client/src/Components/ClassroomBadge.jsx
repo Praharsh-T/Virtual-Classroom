@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function ClassroomBadge({ classDetails }) {
   return (
     <Link
-      to={`/class/${classDetails.classroomname}/${classDetails.classroomid}`}
+      to={`/class/${classDetails.classroomname}/${classDetails.classroomid}/`}
       className=" block mr-4 ml-4 mb-2 max-w-l p-8 bg-white border  border-gray-200 rounded-lg shadow-lg hover:bg-gray-100 dark:bg-sky-300 shadow-blue-500/50 dark:border-blue-900 dark:hover:bg-blue-400 "
     >
       <div className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-black">

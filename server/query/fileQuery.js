@@ -6,3 +6,6 @@ export const uploadFileToClassroomQuery = (tableName) =>
 // SELECT
 export const getFileFromClassRoomQuery = (tableName) =>
   `SELECT  *FROM ${tableName} WHERE fileid=$1`;
+
+export const getFileDetailsFromClassRoomQuery = (tableName) =>
+  `SELECT  fileId, fileName, fileDescription, fileType, uploadDate FROM ${tableName}`;

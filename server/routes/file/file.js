@@ -4,7 +4,10 @@ const upload = multer({ dest: "uploads/" });
 import express from "express";
 import { validateToken } from "../../middleware/authToken.js";
 import { uploadFileToClassroom } from "../scripts/classroomQuery.js";
-import { getFileFromClassRoom } from "../scripts/file.js";
+import {
+  getFileDetailsFromClassRoom,
+  getFileFromClassRoom,
+} from "../scripts/file.js";
 
 const router = express.Router();
 router.post(
@@ -32,6 +35,12 @@ router.post("/getFile", validateToken, async (req, res) => {
   const fileid = req.body.fileid;
   const fileDetails = await getFileFromClassRoom(tableName, fileid);
   res.json({ success: true, fileDetails });
+});
+
+router.post("/getAllFiles", validateToken, async (req, res) => {
+  const tableName = "FILE" + req.body.classroomName + req.body.classroomid;
+  const files = await getFileDetailsFromClassRoom(tableName);
+  res.json({ success: true, files });
 });
 
 export default router;

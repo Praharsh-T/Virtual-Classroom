@@ -17,17 +17,26 @@ const getUrl = (blob) => {
   return url;
 };
 
-const handleFile = (fileDetails) => {
+const handleFile = (fileDetails, fileid, classroomName, classroomid) => {
   switch (fileDetails.filetype) {
     case "txt": {
       const unit8Arr = getUint8Array(fileDetails.filecontent.data);
       const blob = getBlob(unit8Arr, "plain/text");
+      localStorage.setItem(
+        `/${classroomName}/${classroomid}/${fileid}/`,
+        JSON.stringify(blob)
+      );
       return getUrl(blob);
     }
     case "pdf": {
       const unit8Arr = getUint8Array(fileDetails.filecontent.data);
       const blob = getBlob(unit8Arr, "application/pdf");
-      return getUrl(blob);
+      const url = getUrl(blob);
+      // localStorage.setItem(
+      //   `/${classroomName}/${classroomid}/${fileid}/`,
+      //   JSON.stringify(url)
+      // );
+      return url;
     }
     case "jpg": {
       const unit8Arr = getUint8Array(fileDetails.filecontent.data);
@@ -62,7 +71,7 @@ export const fetchFileFromDb = async (fileid, classroomName, classroomid) => {
     });
     const fileData = await file.json();
     console.log(fileData.fileDetails);
-    return handleFile(fileData.fileDetails);
+    return handleFile(fileData.fileDetails, fileid, classroomName, classroomid);
   } catch (e) {
     console.log(e);
   }
