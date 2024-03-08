@@ -5,19 +5,21 @@ import Sidebar from "../Components/Sidebar";
 import MiniNav from "../Components/ClassSideBarComponents/MiniNav";
 import ClassFiles from "../Components/class/ClassFiles";
 import ViewFile from "../Components/class/ViewFile";
+import FileuploadComponent from "../Components/ClassSideBarComponents/FileuploadComponent";
 
 function ViewClass() {
   return (
     <div>
       <Navbar />
       <Sidebar />
-      <div class="sm:ml-64">
-        <div className="mt-14">
+      <div class='sm:ml-64'>
+        <div className='mt-14'>
           <MiniNav />
         </div>
-        <div class="p-4 rounded-lg dark:border-gray-700">
+        <div class='p-4 rounded-lg dark:border-gray-700'>
           <Routes>
-            <Route path="/notes" element={<ClassFiles />} />
+            <Route path='/notes' element={<ClassFiles />} />
+            <Route path='/chat' element={<FileuploadComponent />} />
             {/* <Route path="/notes/view/:fileid" element={<ViewFile />} /> */}
           </Routes>
         </div>
