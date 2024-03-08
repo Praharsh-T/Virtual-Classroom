@@ -1,7 +1,4 @@
 import React from "react";
-import Sidebar from "./Sidebar";
-import Navbar from "./Navbar";
-import Profile from "./Profile";
 export function ClassSidebar() {
   return (
     <div>
