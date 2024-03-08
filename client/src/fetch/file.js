@@ -1,9 +1,14 @@
+// Buffer -> Unit8 -> Blob -> Url -> iframe
 import { getAuthToken } from "../utils/userInfo";
 
 const FETCH_BASE_URL = process.env.REACT_APP_FETCH_BASE_URL;
 
-const getBlob = (unitAr) => {
-  const blob = new Blob([unitAr], { type: "application/pdf" });
+const getUint8Array = (Buffer) => {
+  return new Uint8Array(Buffer);
+};
+
+const getBlob = (unitAr, type) => {
+  const blob = new Blob([unitAr], { type });
   return blob;
 };
 
@@ -11,32 +16,35 @@ const getUrl = (blob) => {
   const url = URL.createObjectURL(blob);
   return url;
 };
+
 const handleFile = (fileDetails) => {
   switch (fileDetails.filetype) {
     case "txt": {
-      const unit8Arr = new Uint8Array(fileDetails.filecontent.data);
-      const a = document.createElement("a");
-      return getUrl(getBlob(unit8Arr));
+      const unit8Arr = getUint8Array(fileDetails.filecontent.data);
+      const blob = getBlob(unit8Arr, "plain/text");
+      return getUrl(blob);
     }
     case "pdf": {
-      const unit8Arr = new Uint8Array(fileDetails.filecontent.data);
-      const a = document.createElement("a");
-      return getUrl(getBlob(unit8Arr));
+      const unit8Arr = getUint8Array(fileDetails.filecontent.data);
+      const blob = getBlob(unit8Arr, "application/pdf");
+      return getUrl(blob);
     }
     case "jpg": {
-      const a = document.createElement("a");
-      return "/";
+      const unit8Arr = getUint8Array(fileDetails.filecontent.data);
+      const blob = getBlob(unit8Arr, "image/jpeg");
+      return getUrl(blob);
     }
     case "png": {
-      const a = document.createElement("a");
-      return "/";
+      const unit8Arr = getUint8Array(fileDetails.filecontent.data);
+      const blob = getBlob(unit8Arr, "image/jpeg");
+      return getUrl(blob);
     }
     default: {
-      const a = document.createElement("a");
       return "/";
     }
   }
 };
+
 export const fetchFileFromDb = async (fileid, classroomName, classroomid) => {
   const token = getAuthToken();
   try {
