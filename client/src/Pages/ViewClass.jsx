@@ -13,7 +13,7 @@ function ViewClass() {
       <Navbar />
       <Sidebar />
       <div class='sm:ml-64'>
-        <div className='mt-14'>
+        <div className='mt-14 '>
           <MiniNav />
         </div>
         <div class='p-4 rounded-lg dark:border-gray-700'>
