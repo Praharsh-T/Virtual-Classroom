@@ -4,7 +4,6 @@ import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
 import MiniNav from "../Components/ClassSideBarComponents/MiniNav";
 import ClassFiles from "../Components/class/ClassFiles";
-import ViewFile from "../Components/class/ViewFile";
 import FileuploadComponent from "../Components/ClassSideBarComponents/FileuploadComponent";
 import People from "../Components/class/People";
 

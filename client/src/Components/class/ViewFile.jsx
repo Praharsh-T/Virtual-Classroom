@@ -8,7 +8,9 @@ function ViewFile({ classroomName, classroomid, fileid }) {
   async function getFile() {
     const url = await fetchFileFromDb(fileid, classroomName, classroomid);
     setLoading(false);
-    setUrl(url);
+    if (url) {
+      setUrl(url);
+    }
   }
   useEffect(() => {
     getFile();

@@ -21,12 +21,14 @@ const handleFile = (fileDetails, fileid, classroomName, classroomid) => {
   switch (fileDetails.filetype) {
     case "txt": {
       const unit8Arr = getUint8Array(fileDetails.filecontent.data);
-      const blob = getBlob(unit8Arr, "plain/text");
-      localStorage.setItem(
-        `/${classroomName}/${classroomid}/${fileid}/`,
-        JSON.stringify(blob)
-      );
-      return getUrl(blob);
+      const blob = getBlob(unit8Arr, "text/plain");
+      // localStorage.setItem(
+      //   `/${classroomName}/${classroomid}/${fileid}/`,
+      //   JSON.stringify(blob)
+      // );
+      const url = getUrl(blob);
+      console.log(url);
+      return url;
     }
     case "pdf": {
       const unit8Arr = getUint8Array(fileDetails.filecontent.data);
@@ -40,16 +42,16 @@ const handleFile = (fileDetails, fileid, classroomName, classroomid) => {
     }
     case "jpg": {
       const unit8Arr = getUint8Array(fileDetails.filecontent.data);
-      const blob = getBlob(unit8Arr, "image/jpeg");
+      const blob = getBlob(unit8Arr, "image/jpg");
       return getUrl(blob);
     }
     case "png": {
       const unit8Arr = getUint8Array(fileDetails.filecontent.data);
-      const blob = getBlob(unit8Arr, "image/jpeg");
+      const blob = getBlob(unit8Arr, "image/png");
       return getUrl(blob);
     }
     default: {
-      return "/";
+      return null;
     }
   }
 };

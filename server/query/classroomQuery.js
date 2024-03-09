@@ -25,7 +25,7 @@ export const incremntStudentCount = `UPDATE CLASSROOM SET studentcount=studentco
 
 export const createFileTableQuery = (tableName) => `create table ${tableName} (
   fileId SERIAL unique,
-  fileName varchar(20),
+  fileName varchar(50),
   fileDescription varchar(500),
   fileType varchar(10),
   fileContent bytea not null,
