@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import FileIcon from "./FileIcon";
 import { getFilesOfClass } from "../../fetch/getFile";
-import { useParams } from "react-router-dom";
+import SmallLoader from "../loaders/SmallLoader";
 
-function ClassFiles() {
+function ClassFiles({ classroomName, classroomid }) {
   const [files, setFiles] = useState(null);
-  const { classroomName, classroomid } = useParams();
+
   useEffect(() => {
     getFilesOfClass(classroomName, classroomid).then((response) => {
       setFiles(response.files);
     });
   }, [classroomName, classroomid]);
   return files === null ? (
-    <div>Loading</div>
+    <SmallLoader />
   ) : (
     <>
       {files.map((file, i) => {
