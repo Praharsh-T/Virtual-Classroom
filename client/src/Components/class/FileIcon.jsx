@@ -13,7 +13,7 @@ function FileIcon({ file }) {
   return (
     <div
       onClick={() => setViewFile(true)}
-      className='flex flex-wrap md:flex-nowrap md:space-x-5 items-start bg-white border border-gray-200 rounded-lg shadow hover:shadow-md md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mb-5 cursor-pointer'>
+      className='flex flex-wrap md:flex-nowrap md:space-x-5 items-start bg-white border border-gray-200 rounded-lg shadow hover:shadow-md md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mb-5 cursor-pointer '>
       <img
         className='object-cover w-full md:w-48 rounded-t-lg h-96 md:h-auto md:rounded-none md:rounded-t-lg'
         src='/docs/images/blog/image-4.jpg'
