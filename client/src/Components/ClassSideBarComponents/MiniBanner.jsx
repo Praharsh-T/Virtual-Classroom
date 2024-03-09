@@ -2,7 +2,7 @@ import React from "react";
 
 function MiniBanner() {
   return (
-    <section className='py-8 relative bg-gradient-to-r from-blue-500 to-indigo-500'>
+    <section className='py-8 relative bg-gray-200'>
       <div className='container px-4 mx-auto'>
         <div className='h-full w-full rounded-md shadow-lg bg-white'>
           <div className='px-8 py-10 flex flex-wrap justify-between items-center'>
