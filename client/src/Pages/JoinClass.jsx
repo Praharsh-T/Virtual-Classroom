@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAuthToken } from "../utils/userInfo";
+import SmallLoader from "../Components/loaders/SmallLoader";
 const REACT_APP_FETCH_BASE_URL = process.env.REACT_APP_FETCH_BASE_URL;
 function JoinClass() {
   const params = useParams();
@@ -74,7 +75,13 @@ function JoinClass() {
         </div>
       ) : (
         <div>
-          {validUrl === null ? "Please Verifying URL..." : "Invalid URL!"}
+          {validUrl === null ? (
+            <div>
+              "Please Verifying URL..." <SmallLoader />
+            </div>
+          ) : (
+            "Invalid URL!"
+          )}
         </div>
       )}
     </div>

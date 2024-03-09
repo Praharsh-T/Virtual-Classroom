@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { getAuthToken } from "../utils/userInfo";
 import { useNavigate } from "react-router-dom";
 import JoinedClassRoomBadge from "../Components/JoinedClassRoomBadge";
+import SmallLoader from "../Components/loaders/SmallLoader";
 const FETCH_BASE_URL = process.env.REACT_APP_FETCH_BASE_URL;
 
 function JoinedClasses() {
   const [classes, setClasses] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   async function getAllClasses() {
@@ -26,11 +28,14 @@ function JoinedClasses() {
     const listOfclassJson = await listOfclass.json();
     console.log(listOfclassJson);
     setClasses(listOfclassJson.classes);
+    setLoading(false);
   }
   useEffect(() => {
     getAllClasses();
   }, []);
-  return (
+  return loading ? (
+    <SmallLoader />
+  ) : (
     <div>
       {classes.length &&
         classes.map((classDetails, i) => {

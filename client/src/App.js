@@ -7,6 +7,7 @@ import CreateClass from "./Pages/CreateClass";
 import JoinClass from "./Pages/JoinClass";
 import ViewClass from "./Pages/ViewClass";
 import "./index.css";
+import JoinClassFromFill from "./Pages/JoinClassFromFill";
 const App = () => {
   return (
     <BrowserRouter>
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/home/*" element={<Home />} />
         <Route path="/create-class" element={<CreateClass />} />
+        <Route path="/join-class" element={<JoinClassFromFill />} />
         <Route
           path="/join/:classroomName/:classroomid"
           element={<JoinClass />}
