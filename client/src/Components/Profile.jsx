@@ -41,6 +41,10 @@ function Profile() {
               <img
                 className="w-8 h-8 rounded-full"
                 src={userInfo.profile}
+                onError={(e) => {
+                  e.target.src = "/Images/profile.svg";
+                  e.onError = null;
+                }}
                 alt="user photo"
               />
             </button>
