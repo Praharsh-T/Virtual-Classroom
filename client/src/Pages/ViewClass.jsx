@@ -8,6 +8,7 @@ import FileuploadComponent from "../Components/ClassSideBarComponents/Fileupload
 import People from "../Components/class/People";
 import CopyClipBoard from "../Components/CopyClipBoard";
 import MiniBanner from "../Components/ClassSideBarComponents/MiniBanner";
+import InfoTab from "../Components/ClassSideBarComponents/InfoTab";
 const CURRENT_SITE = process.env.REACT_APP_CURRENT_SITE;
 
 function ViewClass() {
