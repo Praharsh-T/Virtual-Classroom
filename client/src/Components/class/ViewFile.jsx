@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { fetchFileFromDb } from "../../fetch/file";
 
-function ViewFile({ classroomName, classroomid, fileid }) {
+function ViewFile({ classroomName, classroomid, fileid, filename, filetype }) {
   const [url, setUrl] = useState();
   const [loading, setLoading] = useState(true);
   async function getFile() {
@@ -28,6 +28,21 @@ function ViewFile({ classroomName, classroomid, fileid }) {
     </div>
   ) : (
     <div className="w-full h-full pt-4">
+      <a
+        class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+        href={url}
+        download={filename}
+        target="_blank"
+      >
+        <svg
+          class="fill-current w-4 h-4 mr-2"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+        >
+          <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+        </svg>
+        <span>Download</span>
+      </a>
       <iframe src={url} frameborder="0" class="w-full h-full"></iframe>
     </div>
   );

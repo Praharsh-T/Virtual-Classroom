@@ -19,7 +19,7 @@ function ViewClass() {
         <div className="mt-14 ">
           <MiniNav classroomName={classroomName} />
           <CopyClipBoard
-            url={`${CURRENT_SITE}/join/${classroomName}/${classroomid}`}
+            url={`${CURRENT_SITE}/join/${classroomName}/${classroomid}/`}
           />
         </div>
         <div class="p-4 rounded-lg dark:border-gray-700">
