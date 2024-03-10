@@ -2,7 +2,7 @@ import React from "react";
 
 function DefaultPage() {
   return (
-    <div className='h-max mt-5 ml-11 flex flex-row '>
+    <div className=' mt-5 ml-11 flex flex-row '>
       <div className='bg-gray-800 text-white p-8 flex-grow'>
         {/* Content for large block */}
         <h1>Large Block</h1>

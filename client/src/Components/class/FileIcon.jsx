@@ -13,22 +13,24 @@ function FileIcon({ file }) {
   return (
     <div
       onClick={() => setViewFile(true)}
-      className='flex flex-wrap md:flex-nowrap md:space-x-5 items-start bg-white border border-gray-200 rounded-lg shadow hover:shadow-md md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mb-5 cursor-pointer '>
-      <img
-        className='object-cover w-full md:w-48 rounded-t-lg h-96 md:h-auto md:rounded-none md:rounded-t-lg'
-        src='/docs/images/blog/image-4.jpg'
-        alt='some img'
-      />
-      <div className='p-4 flex flex-col justify-between w-full md:flex-grow'>
-        <h5 className='mb-2 text-2xl font-bold tracking-tight text-center text-gray-900 dark:text-white hover:text-blue-500'>
-          {file.filename}
-        </h5>
-        <p className='mb-3 font-normal text-center text-gray-700 dark:text-gray-400 hover:text-blue-500'>
-          {file.filedescription}
-        </p>
-        <h4 className='mb-2 text-center text-xs text-gray-500 hover:text-blue-500'>
-          {file.filetype}
-        </h4>
+      className='grid grid-cols-1 md:grid-cols-2 gap-5 items-start bg-white border border-gray-200 rounded-lg shadow hover:shadow-md hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mb-5 cursor-pointer'>
+      <div className='md:flex md:flex-nowrap'>
+        <img
+          className='object-cover w-full h-48 rounded-t-lg md:w-48 md:h-auto md:rounded-none md:rounded-t-lg'
+          src='/docs/images/blog/image-4.jpg'
+          alt='some img'
+        />
+        <div className='p-4 flex flex-col justify-between w-full md:flex-grow'>
+          <h5 className='mb-2 text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-500'>
+            {file.filename}
+          </h5>
+          <p className='mb-3 font-normal text-gray-700 dark:text-gray-400 hover:text-blue-500'>
+            {file.filedescription}
+          </p>
+          <h4 className='text-sm text-gray-500 hover:text-blue-500'>
+            {file.filetype}
+          </h4>
+        </div>
       </div>
       {viewFile && (
         <div className='overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-screen md:inset-0 bg-transparent backdrop-blur-sm'>
