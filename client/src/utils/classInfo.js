@@ -11,7 +11,8 @@ export const getOwnedClasses = () => {
 };
 
 export const setOwnedClasses = (ownedClass) => {
-  sessionStorage.setItem("ownedClass", JSON.stringify(ownedClass));
+  if (ownedClass.length)
+    sessionStorage.setItem("ownedClass", JSON.stringify(ownedClass));
 };
 
 export const clearOwnedClasses = () => {

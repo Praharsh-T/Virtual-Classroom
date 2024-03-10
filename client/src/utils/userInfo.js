@@ -19,5 +19,6 @@ export const getUserProfile = () => {
 };
 
 export const logOut = () => {
+  sessionStorage.clear();
   localStorage.clear();
 };
