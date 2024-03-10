@@ -37,17 +37,6 @@ function FileIcon({ file }) {
           src='/docs/images/blog/image-4.jpg'
           alt='some img'
         />
-        <div className='p-4 flex flex-col justify-between w-full md:flex-grow'>
-          <h5 className='mb-2 text-2xl font-bold tracking-tight text-center text-gray-900 dark:text-white hover:text-blue-500'>
-            {file.filename}
-          </h5>
-          <p className='mb-3 font-normal text-center text-gray-700 dark:text-gray-400 hover:text-blue-500'>
-            {file.filedescription}
-          </p>
-          <h4 className='mb-2 text-center text-xs text-gray-500 hover:text-blue-500'>
-            {file.filetype}
-          </h4>
-        </div>
 
         {viewFile && (
           <div className='overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-screen md:inset-0 bg-transparent backdrop-blur-sm'>

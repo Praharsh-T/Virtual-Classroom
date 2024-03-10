@@ -9,8 +9,8 @@ function FileuploadComponent({ classroomName, classroomid }) {
   };
 
   return (
-    <div>
-      <MiniBanner />
+    <div className='flex justify-center'>
+      <h5>CHAT SECTION</h5>
     </div>
   );
 }

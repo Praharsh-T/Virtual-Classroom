@@ -7,6 +7,7 @@ import ClassFiles from "../Components/class/ClassFiles";
 import FileuploadComponent from "../Components/ClassSideBarComponents/FileuploadComponent";
 import People from "../Components/class/People";
 import CopyClipBoard from "../Components/CopyClipBoard";
+import MiniBanner from "../Components/ClassSideBarComponents/MiniBanner";
 const CURRENT_SITE = process.env.REACT_APP_CURRENT_SITE;
 
 function ViewClass() {
@@ -15,17 +16,20 @@ function ViewClass() {
     <div>
       <Navbar />
       <Sidebar />
-      <div class="sm:ml-64">
-        <div className="mt-14 ">
+      <div class='sm:ml-64'>
+        <div className='mt-14 '>
           <MiniNav classroomName={classroomName} />
-          <CopyClipBoard
-            url={`${CURRENT_SITE}/join/${classroomName}/${classroomid}/`}
-          />
+          <div className='flex gap-9'>
+            <CopyClipBoard
+              url={`${CURRENT_SITE}/join/${classroomName}/${classroomid}/`}
+            />
+            <MiniBanner />
+          </div>
         </div>
-        <div class="p-4 rounded-lg dark:border-gray-700">
+        <div class='p-4 rounded-lg dark:border-gray-700'>
           <Routes>
             <Route
-              path="/notes"
+              path='/notes'
               element={
                 <ClassFiles
                   classroomName={classroomName}
@@ -34,7 +38,7 @@ function ViewClass() {
               }
             />
             <Route
-              path="/chat"
+              path='/chat'
               element={
                 <FileuploadComponent
                   classroomName={classroomName}
@@ -43,7 +47,7 @@ function ViewClass() {
               }
             />
             <Route
-              path="/people"
+              path='/people'
               element={
                 <People
                   classroomName={classroomName}

@@ -14,26 +14,24 @@ function CopyClipBoard({ url }) {
   };
 
   return (
-    <div className='bg-gray-100 border border-gray-300 rounded-lg shadow-md p-4'>
+    <div className=' bg-white border border-blue-300 rounded-lg shadow-md p-4 w-52 mt-11 ml-11'>
       <h1 className='mb-2 text-lg font-semibold text-gray-900 dark:text-white'>
         Class Code
       </h1>
-      <div className='flex'>
+      <div className='mb-2'>
         <input
           value={url}
           type='text'
-          className='flex-grow bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-4 py-2 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-300 dark:focus:ring-blue-500 dark:focus:border-blue-500'
+          className='bg-white border border-blue-300 text-gray-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-4 py-2 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-300 dark:focus:ring-blue-500 dark:focus:border-blue-500'
           disabled
           readOnly
         />
-        <button
-          onClick={copyToClipboard}
-          className='ml-2 flex-shrink-0 inline-flex items-center justify-center bg-white border border-gray-200 rounded-lg px-2 py-1 dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700'>
-          <span className='text-xs font-semibold text-gray-900 dark:text-gray-400'>
-            {copied ? "Copied" : "Copy"}
-          </span>
-        </button>
       </div>
+      <button
+        onClick={copyToClipboard}
+        className='bg-white border border-blue-200 rounded-lg px-4 py-2 text-sm text-gray-900 dark:text-gray-400 dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700'>
+        {copied ? "Copied" : "Copy"}
+      </button>
     </div>
   );
 }
