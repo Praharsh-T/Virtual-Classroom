@@ -3,6 +3,7 @@ import { getAuthToken } from "../utils/userInfo";
 import { useNavigate } from "react-router-dom";
 import JoinedClassRoomBadge from "../Components/JoinedClassRoomBadge";
 import SmallLoader from "../Components/loaders/SmallLoader";
+import ClassNav from "../Components/ClassSideBarComponents/ClassNav";
 const FETCH_BASE_URL = process.env.REACT_APP_FETCH_BASE_URL;
 
 function JoinedClasses() {

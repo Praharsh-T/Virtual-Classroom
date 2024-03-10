@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
+import ClassNav from "./ClassSideBarComponents/ClassNav";
 
 function JoinedClassRoomBadge({ classDetails }) {
   return (
     <Link
+
       to={{
         pathname: `/class/${classDetails.classroomname}/${classDetails.classroomid}/`,
       }}
@@ -14,8 +16,9 @@ function JoinedClassRoomBadge({ classDetails }) {
       </h2>
       <div>{classDetails && classDetails.username}</div>
       <h3>Date: {classDetails && classDetails.enr_date}</h3>
+
     </Link>
   );
 }
 
-export default JoinedClassRoomBadge
+export default JoinedClassRoomBadge;
