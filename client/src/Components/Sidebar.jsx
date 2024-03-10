@@ -1,157 +1,130 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import { useTheme } from "../utils/themecontext";
 
-function Sidebar() {
+const Sidebar = () => {
+  // const { isDarkTheme } = useTheme();
+
   return (
-    <aside className="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-900 dark:border-gray-700">
-      <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-900">
-        <ul className="space-y-3 font-medium">
-          {/* Adding border to differentiate components */}
-          <li className="border-b border-gray-200 dark:border-gray-700">
+    <aside className='fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-900 dark:border-gray-700'>
+      <div className='h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-900'>
+        <ul className='space-y-3 font-medium'>
+          <li
+            className={`border rounded-lg transition duration-300 ease-in-out ${"bg-gradient-to-r from-skyblue to-teal-900"}`}>
             <Link
-              to="/"
-              className="flex items-center p-6 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group transition duration-300 ease-in-out"
-            >
+              to='/'
+              className='flex items-center p-6 hover:bg-blue-200 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300 ease-in-out'>
               <svg
-                className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 22 21"
-              >
-                <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
-                <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
+                className='w-6 h-6 text-gray-500  dark:text-gray-100  transition duration-75 animate__animated animate__pulse infinite'
+                aria-hidden='true'
+                xmlns='http://www.w3.org/2000/svg'
+                height='24'
+                viewBox='0 -960 960 960'
+                fill='currentColor'
+                width='24'>
+                <path d='M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z' />
               </svg>
-              <span className="ms-3 text-xl">Home</span>
+              <span className='ms-4 text-xl font-medium tracking-tight  dark:text-gray-100'>
+                Home
+              </span>
             </Link>
           </li>
-          <li className="border-b border-gray-200 dark:border-gray-700">
+          <li
+            className={`border rounded-lg transition duration-300 ease-in-out ${"bg-gradient-to-r from-skyblue to-teal-900"}`}>
             <Link
-              to="/home/leader/my-classes"
-              className="flex items-center p-6 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group transition duration-300 ease-in-out"
-            >
+              to='/home/leader/my-classes'
+              className='flex items-center p-6 hover:bg-blue-200 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300 ease-in-out'>
               <svg
-                className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 18 18"
-              >
-                <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
+                className='flex-shrink-0 w-5 h-5 text-gray-500  dark:text-gray-100 transition duration-75 animate__animated animate__pulse infinite'
+                aria-hidden='true'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='currentColor'
+                viewBox='0 0 18 18'>
+                <path d='M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z' />
               </svg>
-              <span className="flex-1 ms-3 whitespace-nowrap text-xl">
+              <span className='ms-4 text-xl font-medium tracking-tight  dark:text-gray-100'>
                 My Classes
               </span>
             </Link>
           </li>
-
-          <li className="border-b border-gray-200 dark:border-gray-700">
+          <li
+            className={`border rounded-lg transition duration-300 ease-in-out ${"bg-gradient-to-r from-skyblue to-teal-900"}`}>
             <Link
-              to="/home/user/joined-classes"
-              className="flex items-center p-6 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group"
-            >
+              to='/home/user/joined-classes'
+              className='flex items-center p-6 hover:bg-blue-200 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300 ease-in-out'>
               <svg
-                className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z" />
+                className='w-6 h-6 text-gray-500 transition duration-75 animate__animated animate__pulse infinite  dark:text-gray-100'
+                xmlns='http://www.w3.org/2000/svg'
+                height='24'
+                fill='currentColor'
+                viewBox='0 -960 960 960'
+                width='24'>
+                <path d='M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z' />
               </svg>
-              <span className="flex-1 ms-3 whitespace-nowrap text-xl">
+              <span className='ms-4 text-xl font-medium tracking-tight  dark:text-gray-100'>
                 Joined Classes
               </span>
             </Link>
           </li>
 
-          <li className="border-b border-gray-200 dark:border-gray-700">
+          <li className='border-b border-gray-200 dark:border-gray-700'>
             <Link
-              to="/create-class"
-              className="flex items-center p-6 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group"
-            >
+              to='/create-class'
+              className='flex items-center p-6 hover:bg-blue-200 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300 ease-in-out'>
               <svg
-                className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 1a9 9 0 0 1 9 9c0 4.419-3.289 8.08-7.546 8.825A.5.5 0 0 1 10 19v-4h-.5a1 1 0 0 1 0-2H10v-4a1 1 0 0 0-1-1H5V6.5a1 1 0 0 1 2 0V9h2V6.5a1 1 0 0 1 1-1H16V5h-4.5a1 1 0 0 1-1-1V1z"
-                ></path>
+                className='w-6 h-6 text-gray-500 transition duration-75  dark:text-gray-100
+                animate__animated animate__pulse infinite'
+                xmlns='http://www.w3.org/2000/svg'
+                height='24'
+                fill='currentColor'
+                viewBox='0 -960 960 960'
+                width='24'>
+                <path d='M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z' />
               </svg>
-              <span className="flex-1 ms-3 whitespace-nowrap text-xl">
+              <span className='ms-4 text-xl font-medium tracking-tight  dark:text-gray-100'>
                 Create Class
               </span>
             </Link>
           </li>
 
-          <li className="border-b border-gray-200 dark:border-gray-700">
+          <li className='border-b border-gray-200 dark:border-gray-700'>
             <Link
-              to="/join-class"
-              className="flex items-center p-6 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group"
-            >
+              to='/join-class'
+              className='flex items-center p-6 hover:bg-blue-200 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300 ease-in-out'>
               <svg
-                className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M11.707 3.707l4.5 4.5a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414 0l-4.5-4.5a1 1 0 0 1 0-1.414l4.5-4.5a1 1 0 0 1 1.414 0zM11 11.586V7h-2v4.586l-2.793-2.793a1 1 0 0 0-1.414 1.414l4.5 4.5a1 1 0 0 0 1.414 0l4.5-4.5a1 1 0 0 0-1.414-1.414L11 11.586z"></path>
+                className='w-6 h-6 text-gray-500 transition duration-75 animate__animated animate__pulse infinite  dark:text-gray-100'
+                xmlns='http://www.w3.org/2000/svg'
+                height='24'
+                fill='currentColor'
+                viewBox='0 -960 960 960'
+                width='24'>
+                <path d='M500-482q29-32 44.5-73t15.5-85q0-44-15.5-85T500-798q60 8 100 53t40 105q0 60-40 105t-100 53Zm220 322v-120q0-36-16-68.5T662-406q51 18 94.5 46.5T800-280v120h-80Zm80-280v-80h-80v-80h80v-80h80v80h80v80h-80v80h-80Zm-480-40q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM0-160v-112q0-34 17.5-62.5T64-378q62-31 126-46.5T320-440q66 0 130 15.5T576-378q29 15 46.5 43.5T640-272v112H0Zm320-400q33 0 56.5-23.5T400-640q0-33-23.5-56.5T320-720q-33 0-56.5 23.5T240-640q0 33 23.5 56.5T320-560ZM80-240h480v-32q0-11-5.5-20T540-306q-54-27-109-40.5T320-360q-56 0-111 13.5T100-306q-9 5-14.5 14T80-272v32Zm240-400Zm0 400Z' />
               </svg>
-              <span className="flex-1 ms-3 whitespace-nowrap text-xl">
+              <span className='ms-4 text-xl font-medium tracking-tight  dark:text-gray-100'>
                 Join Class
               </span>
             </Link>
           </li>
-
-          <li className="border-b border-gray-200 dark:border-gray-700">
+          <li className='border-b border-gray-200 dark:border-gray-700'>
             <Link
-              to="/login"
-              className="flex items-center p-6 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group"
-            >
+              to='/login'
+              className='flex items-center p-6 hover:bg-blue-200 border rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300 ease-in-out'>
               <svg
-                className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 18 16"
-              >
+                className='flex-shrink-0 w-5 h-5 text-gray-500 dark:text-gray-100 transition duration-75 animate__animated animate__pulse infinite'
+                aria-hidden='true'
+                xmlns='http://www.w3.org/2000/svg'
+                fill='currentColor'
+                viewBox='0 0 18 16'>
                 <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
+                  stroke='currentColor'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
+                  d='M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3'
                 />
               </svg>
-              <span className="flex-1 ms-3 whitespace-nowrap text-xl">
+              <span className='ms-3 text-xl font-medium tracking-tight text-gray-900 dark:text-gray-100'>
                 Sign In
-              </span>
-            </Link>
-          </li>
-
-          <li className="border-b border-gray-200 dark:border-gray-700">
-            <Link
-              to="/Form"
-              className="flex items-center p-6 text-gray-900 rounded-lg dark:text-white hover:bg-blue-100 dark:hover:bg-blue-700 group"
-            >
-              <svg
-                className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z" />
-                <path d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z" />
-                <path d="M8.961 16a.93.93 0 0 0 .189-.019l3.4-.679a.961.961 0 0 0 .49-.263l6.118-6.117a2.884 2.884 0 0 0-4.079-4.078l-6.117 6.117a.96.96 0 0 0-.263.491l-.679 3.4A.961.961 0 0 0 8.961 16Zm7.477-9.8a.958.958 0 0 1 .68-.281.961.961 0 0 1 .682 1.644l-.315.315-1.36-1.36.313-.318Zm-5.911 5.911 4.236-4.236 1.359 1.359-4.236 4.237-1.7.339.341-1.699Z" />
-              </svg>
-              <span className="flex-1 ms-3 whitespace-nowrap text-xl">
-                Sign Up
               </span>
             </Link>
           </li>
@@ -159,6 +132,6 @@ function Sidebar() {
       </div>
     </aside>
   );
-}
+};
 
 export default Sidebar;
