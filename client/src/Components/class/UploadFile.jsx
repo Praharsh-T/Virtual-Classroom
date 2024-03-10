@@ -90,17 +90,16 @@ function UploadFile({ classroomName, classroomid }) {
       {loading && <SmallLoader />}
       <div className='mt-4'>
         {data.filePath && <div>Selected file: {data.filePath}</div>}
-        <div className='container mx-auto mt-5  bg-blue-50 border rounded-lg  border-blue-300'>
-          <h1 className='text-xl font-semibold mt-4 text-gray-800 mb-4 text-center'>
-            File Section
-          </h1>
-        </div>
 
-        <div className='container mx-auto'>
+        <h1 className='text-2xl font-bold mt-4 text-blue-800 mb-4 text-center'>
+          Notes
+        </h1>
+
+        <div className='container mx-auto '>
           <div className='px-4 pt-4 border-l-1 border-gray-200 flex justify-center'>
-            <div className='p-5 mt-5 mb-11 mr-11 border rounded-lg border-gray-300'>
+            {/* <div className='p-5 mt-5 mb-11 mr-11 border rounded-lg border-gray-300'>
               <h2 className='text-lg font-semibold mt-3 text-gray-800'>
-                FILE UPLOAD SECTION
+                NOTES UPLOAD SECTION
               </h2>
               <p className='mt-3'>Accepted file types::</p>
               <ul className='list-disc pl-5'>
@@ -110,11 +109,11 @@ function UploadFile({ classroomName, classroomid }) {
                 <li>TXT</li>
               </ul>
               <p className='mt-3'>Maximum file size: 1MB</p>
-            </div>
+            </div> */}
 
-            <div className='max-w-2xl w-full'>
+            <div className=' w-full'>
               <div>
-                <div className='mb-4 bg-gray-50 rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600'>
+                <div className='mb-4 bg-gray-50 rounded-lg border border-blue-200 dark:bg-gray-700 dark:border-gray-100'>
                   <div className='flex justify-between items-center py-2 px-3 border-b dark:border-gray-600'>
                     <div className='flex flex-wrap items-center divide-gray-200 sm:divide-x dark:divide-gray-600'>
                       <div className='flex items-center space-x-1 sm:pr-4'>
@@ -276,15 +275,15 @@ function UploadFile({ classroomName, classroomid }) {
                       </svg>
                     </button>
                   </div>
-                  <div className='py-2 px-4 bg-opacity-75 backdrop-filter backdrop-blur-md bg-white rounded-b-lg dark:bg-gray-800'>
+                  <div className='py-2 px-4 bg-opacity-75 backdrop-filter backdrop-blur-md bg-white rounded-b-lg dark:bg-gray-700'>
                     <label htmlFor='editor' className='sr-only'>
                       Publish post
                     </label>
                     <textarea
                       id='editor'
                       rows='8'
-                      className='block px-0 w-full text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400'
-                      placeholder='Drop Your File Details here..'
+                      className='block px-0 w-full text-lg  text-gray-800 placeholder-center text-center bg-white border-0 dark:bg-gray-300 focus:ring-0 dark:text-black dark:placeholder-gray-900'
+                      placeholder='Drop Your Notes Details here..'
                       required
                       onChange={(e) => {
                         setData({ ...data, fileDescription: e.target.value });
@@ -294,7 +293,7 @@ function UploadFile({ classroomName, classroomid }) {
                   <div className='flex justify-center'>
                     <button
                       onClick={handleUploadFile}
-                      className='inline-flex items-center  mt-2 mb-2 px-5 py-2.5 text-sm font-medium text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800 hover:shadow-lg transition duration-300'>
+                      className='inline-flex items-center  mt-1 mb-3 px-5 py-2.5 text-sm font-medium text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-600 hover:bg-blue-800 hover:shadow-lg transition duration-300'>
                       <svg
                         className='w-4 h-4 mr-1.5 -ml-1'
                         fill='currentColor'
@@ -314,9 +313,9 @@ function UploadFile({ classroomName, classroomid }) {
           </div>
         </div>
       </div>
-      <div className='flex justify-center items-center mb-5 border rounded-xl bg-blue-50 p-5 border-blue-300'>
-        <h2 className='text-2xl font-bold'>Existing Files</h2>
-      </div>
+      <h1 className='text-center mt-4 text-xl text-blue-800 font-bold'>
+        Uploaded Notes
+      </h1>
     </div>
   );
 }

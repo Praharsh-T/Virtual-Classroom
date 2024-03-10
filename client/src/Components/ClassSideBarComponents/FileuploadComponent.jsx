@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import MiniBanner from "./MiniBanner";
 
 function FileuploadComponent({ classroomName, classroomid }) {
   const [isFullScreen, setIsFullScreen] = useState(false);

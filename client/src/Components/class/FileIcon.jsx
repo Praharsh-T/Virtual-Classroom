@@ -13,7 +13,7 @@ function FileIcon({ file }) {
   return (
     <div
       onClick={() => setViewFile(true)}
-      className='flex flex-wrap md:flex-nowrap md:space-x-3  items-start bg-white border  border-blue-200 rounded-lg shadow hover:shadow-md md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mb-5 mt-10 cursor-pointer ml-10 '>
+      className='flex flex-wrap flex-row md:flex-nowrap md:space-x-3  items-start bg-white border  border-blue-200 rounded-lg shadow hover:shadow-md md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-700 dark:hover:bg-gray-900 mb-5 mt-10 cursor-pointer ml-10 '>
       <img
         className='object-cover w-full md:w-48 rounded-t-lg h-96 md:h-auto md:rounded-none md:rounded-t-lg'
         src='/docs/images/blog/image-4.jpg'
@@ -23,10 +23,10 @@ function FileIcon({ file }) {
         <h5 className='mb-2 text-2xl font-bold tracking-tight text-center text-gray-900 dark:text-white hover:text-blue-500'>
           {file.filename}
         </h5>
-        <p className='mb-3 font-normal text-center text-gray-700 dark:text-gray-400 hover:text-blue-500'>
+        <p className='mb-3 font-normal text-center text-gray-700 dark:text-white hover:text-blue-500'>
           File Description: {file.filedescription}
         </p>
-        <h4 className='mb-2 text-center text-xs text-gray-500 hover:text-blue-500'>
+        <h4 className='mb-2 text-center text-xs text-gray-500  dark:text-white hover:text-blue-500'>
           File Type: {file.filetype}
         </h4>
       </div>

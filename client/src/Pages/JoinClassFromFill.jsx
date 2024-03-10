@@ -38,19 +38,14 @@ function JoinClassFromFill() {
           <div className='mt-4'>
             <p>To sign in with a class code</p>
             <ul className='list-disc list-inside'>
-              <li>Use an authorized account</li>
-              <li>
-                Use a class code with 5-7 letters or numbers, and no spaces or
-                symbols
-              </li>
+              <li>Use an authorized account.</li>
+              <li>Use a class code with no spaces.</li>
             </ul>
           </div>
 
           <p className='mt-4'>
             If you have trouble joining the class,{" "}
-            <a href='/help-center' className='text-blue-500 underline'>
-              go to the Help Center article
-            </a>
+            <a className='text-blue-500 '>Contact the Owner of the Class</a>
           </p>
         </div>
       </div>
