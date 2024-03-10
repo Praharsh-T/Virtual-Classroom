@@ -32,7 +32,7 @@ function JoinClass() {
         if (res.warn) {
           alert(res.warn);
         }
-        navigate(`/class/${params.classroomName}/${params.classroomid}`);
+        navigate(`/class/${params.classroomName}/${params.classroomid}/`);
       } else {
         alert("SERVER ERROR COULD NOT JOIN CLASS!");
       }
