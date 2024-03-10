@@ -17,7 +17,6 @@ function MiniNav() {
             >
               <ChatIcon className='h-5 w-5 mr-1' />
               Chats
-              <div className='absolute bottom-0 left-0 w-full h-0.5 bg-gray-300 dark:bg-gray-600'></div>
             </a>
           </li>
           <li className='px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:border-blue-500 transition-colors duration-300 ease-in-out last:border-r-0'>
@@ -27,7 +26,6 @@ function MiniNav() {
             >
               <UserIcon className='h-5 w-5 mr-1' />
               People
-              <div className='absolute bottom-0 left-0 w-full h-0.5 bg-gray-300 dark:bg-gray-600'></div>
             </a>
           </li>
           <li className='px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:border-blue-500 transition-colors duration-300 ease-in-out'>
@@ -37,7 +35,6 @@ function MiniNav() {
             >
               <ClipboardListIcon className='h-5 w-5 mr-1' />
               Notes
-              <div className='absolute bottom-0 left-0 w-full h-0.5 bg-gray-300 dark:bg-gray-600'></div>
             </a>
           </li>
         </ul>
