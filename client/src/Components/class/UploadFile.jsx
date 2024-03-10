@@ -90,7 +90,7 @@ function UploadFile({ classroomName, classroomid }) {
       {loading && <SmallLoader />}
       <div className='mt-4'>
         {data.filePath && <div>Selected file: {data.filePath}</div>}
-        <div className='container mx-auto mt-5 border rounded-lg  border-blue-300'>
+        <div className='container mx-auto mt-5  bg-blue-50 border rounded-lg  border-blue-300'>
           <h1 className='text-xl font-semibold mt-4 text-gray-800 mb-4 text-center'>
             File Section
           </h1>
@@ -313,6 +313,9 @@ function UploadFile({ classroomName, classroomid }) {
             </div>
           </div>
         </div>
+      </div>
+      <div className='flex justify-center items-center mb-5 border rounded-xl bg-blue-50 p-5 border-blue-300'>
+        <h2 className='text-2xl font-bold'>Existing Files</h2>
       </div>
     </div>
   );
