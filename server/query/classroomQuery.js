@@ -12,9 +12,9 @@ export const checkValidClassRoomQuery = `SELECT *FROM CLASSROOM WHERE classroomI
 
 export const checkUserExistINClassroomQuery = `SELECT *FROM ENROLLMENT WHERE userid=$1 AND classroomid=$2`;
 
-export const getJoinedClassesQuery = `SELECT E.enr_date, E.classroomid, C.classroomName
-FROM ENROLLMENT E, CLASSROOM C
-WHERE E.userid=$1 AND E.classroomid=C.classroomid
+export const getJoinedClassesQuery = `SELECT E.enr_date, E.classroomid, C.classroomName, U.username
+FROM ENROLLMENT E, CLASSROOM C, USERS U
+WHERE E.userid=$1 AND E.classroomid=C.classroomid AND U.userid=c.classroomleaderid
 `;
 
 // UPDATE
