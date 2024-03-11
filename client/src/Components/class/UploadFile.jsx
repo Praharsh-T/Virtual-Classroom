@@ -282,7 +282,7 @@ function UploadFile({ classroomName, classroomid }) {
                     <textarea
                       id='editor'
                       rows='8'
-                      className='block px-0 w-full text-lg  text-gray-800 placeholder-center text-center bg-white border-0 dark:bg-gray-300 focus:ring-0 dark:text-black dark:placeholder-gray-900'
+                      className='block p-2 w-full text-lg  text-gray-800 placeholder-center bg-white border-0 dark:bg-gray-300 focus:ring-0 dark:text-black dark:placeholder-gray-900'
                       placeholder='Drop Your Notes Details here..'
                       required
                       onChange={(e) => {

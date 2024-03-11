@@ -8,8 +8,8 @@ function ClassFiles({ classroomName, classroomid }) {
   const [files, setFiles] = useState(null);
 
   useEffect(() => {
-    getFilesOfClass(classroomName, classroomid).then((response) => {
-      setFiles(response.files);
+    getFilesOfClass(classroomName, classroomid).then((files) => {
+      setFiles(files);
     });
   }, [classroomName, classroomid]);
   return files === null ? (
@@ -17,9 +17,11 @@ function ClassFiles({ classroomName, classroomid }) {
   ) : (
     <div>
       <UploadFile classroomName={classroomName} classroomid={classroomid} />
-      {files.map((file, i) => {
-        return <FileIcon file={file} key={i} />;
-      })}
+      <div className='flex flex-wrap gap-4'>
+        {files.map((file, i) => {
+          return <FileIcon file={file} key={i} />;
+        })}
+      </div>
     </div>
   );
 }

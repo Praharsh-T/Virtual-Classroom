@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ViewFile from "./ViewFile";
 
 function FileIcon({ file }) {
   const { classroomName, classroomid } = useParams();
   const [viewFile, setViewFile] = useState(false);
-
   function closeView() {
     setViewFile(false);
   }
@@ -13,24 +12,37 @@ function FileIcon({ file }) {
   return (
     <div
       onClick={() => setViewFile(true)}
+      class='relative w-2/5 h-52 p-8 overflow-hidden border bg-white border-slate-100 rounded-lg ml-6 mr-6'>
+      <span class=' absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600'></span>
 
-      className='flex flex-wrap flex-row md:flex-nowrap md:space-x-3  items-start bg-white border  border-blue-200 rounded-lg shadow hover:shadow-md md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-700 dark:hover:bg-gray-900 mb-5 mt-10 cursor-pointer ml-10 '>
-      <img
-        className="object-cover w-full md:w-48 rounded-t-lg h-96 md:h-auto md:rounded-none md:rounded-t-lg"
-        src="/docs/images/blog/image-4.jpg"
-        alt="some img"
-      />
-      <div className='p-4 flex flex-col justify-between w-min md:flex-grow'>
-        <h5 className='mb-2 text-2xl font-bold tracking-tight text-center text-gray-900 dark:text-white hover:text-blue-500'>
-          {file.filename}
-        </h5>
-        <p className='mb-3 font-normal text-center text-gray-700 dark:text-white hover:text-blue-500'>
-          File Description: {file.filedescription}
-        </p>
-        <h4 className='mb-2 text-center text-xs text-gray-500  dark:text-white hover:text-blue-500'>
-          File Type: {file.filetype}
-        </h4>
+      <div class='justify-between sm:flex'>
+        <div class='flex-shrink-0 hidden ml-3 sm:block'>
+          <svg
+            focusable='false'
+            width='44'
+            height='44'
+            viewBox='0 0 24 24'
+            class=' NMm5M'>
+            <path d='M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h2v8l2.5-1.5L13 12V4h5v16z'></path>
+          </svg>
+        </div>
+        <div>
+          <h4 class='text-xl font-bold text-slate-900'>{file.filename}</h4>
+          <p class='mt-1 text-xs font-medium text-slate-600'>{file.filetype}</p>
+        </div>
       </div>
+
+      <div class='mt-4 sm:pr-8'>
+        <p class='text-sm text-slate-500'>{file.filedescription}</p>
+      </div>
+
+      <dl class='flex mt-6'>
+        <div class='flex flex-col-reverse'>
+          <dt class='text-sm font-medium text-slate-600'>Published</dt>
+          <dd class='text-xs text-slate-500'>{file.uploaddate}</dd>
+        </div>
+      </dl>
+
       {viewFile && (
         <div className='overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full h-screen md:inset-0 bg-transparent backdrop-blur-sm'>
           <div className='relative p-4 pt-2 w-full h-full'>

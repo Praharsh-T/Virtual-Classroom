@@ -13,7 +13,12 @@ export const getFilesOfClass = async (classroomName, classroomid) => {
       body: JSON.stringify({ classroomName, classroomid }),
     });
     const filesList = await files.json();
-    return filesList;
+    const filesArray = filesList.files.map((file) => {
+      const d = new Date(file.uploaddate);
+
+      return { ...file, uploaddate: d.toLocaleDateString() };
+    });
+    return filesArray || [];
   } catch (e) {
     console.log(e);
     return [];
