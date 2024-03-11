@@ -7,7 +7,7 @@ function SentMessage({ msg }) {
         {msg.msgcontent}
       </div>
       <img
-        src="https://source.unsplash.com/vpOeXr5wmR4/600x600"
+        src="/Images/profile.svg"
         class="object-cover h-8 w-8 rounded-full"
         alt=""
       />

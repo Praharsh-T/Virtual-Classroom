@@ -4,7 +4,7 @@ function RecievdMessage({ msg }) {
   return (
     <div class="flex justify-start mb-4">
       <img
-        src="https://source.unsplash.com/vpOeXr5wmR4/600x600"
+        src="/Images/profile.svg"
         class="object-cover h-8 w-8 rounded-full"
         alt=""
       />
