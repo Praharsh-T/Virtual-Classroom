@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
+import validator from "validator";
 const FETCH_BASE_URL = process.env.REACT_APP_FETCH_BASE_URL;
 const Login = () => {
   const [loginProgress, setLoginProgress] = useState(null);
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
   const login = useGoogleLogin({
     onSuccess: (response) => {
       handleUserDetails(response);
@@ -23,11 +27,35 @@ const Login = () => {
 
   async function handleSubmit(e, route) {
     e.preventDefault();
-    if (!data.email || !data.password) {
+    if (
+      !data.email ||
+      !data.password ||
+      (signUpOrLogin && (!data.phone || !data.username))
+    ) {
       alert("Please fill the form");
       return;
     }
 
+    if (signUpOrLogin && String(data.phone).length < 10) {
+      alert("Phone Number must have 10 digits");
+      return;
+    }
+
+    if (
+      signUpOrLogin &&
+      !validator.isStrongPassword(data.password, {
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+      })
+    ) {
+      setErrorMessage("Is Not Strong Password");
+      return;
+    } else {
+      setErrorMessage("");
+    }
     setLoginProgress("Please wait for a moment");
     try {
       const serverRES = await fetch(`${FETCH_BASE_URL}/user/${route}`, {
@@ -193,15 +221,98 @@ const Login = () => {
                       <path d="M1376 768q40 0 68 28t28 68v576q0 40-28 68t-68 28h-960q-40 0-68-28t-28-68v-576q0-40 28-68t68-28h32v-320q0-185 131.5-316.5t316.5-131.5 316.5 131.5 131.5 316.5q0 26-19 45t-45 19h-64q-26 0-45-19t-19-45q0-106-75-181t-181-75-181 75-75 181v320h736z"></path>
                     </svg>
                   </span>
+                  {/* <input id="hs-toggle-password" type="password" class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" placeholder="Enter password" value="12345qwerty"> */}
+
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                     placeholder="Your password"
                     onChange={(e) => {
+                      if (
+                        signUpOrLogin &&
+                        !validator.isStrongPassword(data.password, {
+                          minLength: 8,
+                          minLowercase: 1,
+                          minUppercase: 1,
+                          minNumbers: 1,
+                          minSymbols: 1,
+                        })
+                      ) {
+                        setErrorMessage("Is not a strong Password");
+                      } else {
+                        setErrorMessage("");
+                      }
                       setData({ ...data, password: e.target.value });
                     }}
                   />
+                  <button
+                    type="button"
+                    class="absolute top-0 end-0 p-3.5 rounded-e-md dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    <svg
+                      class="flex-shrink-0 size-3.5 text-gray-400 dark:text-neutral-600"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        class="hs-password-active:hidden"
+                        d="M9.88 9.88a3 3 0 1 0 4.24 4.24"
+                      />
+                      <path
+                        class="hs-password-active:hidden"
+                        d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"
+                      />
+                      <path
+                        class="hs-password-active:hidden"
+                        d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"
+                      />
+                      <line
+                        class="hs-password-active:hidden"
+                        x1="2"
+                        x2="22"
+                        y1="2"
+                        y2="22"
+                      />
+                      <path
+                        class="hidden hs-password-active:block"
+                        d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"
+                      />
+                      <circle
+                        class="hidden hs-password-active:block"
+                        cx="12"
+                        cy="12"
+                        r="3"
+                      />
+                    </svg>
+                  </button>
                 </div>
+                {errorMessage && (
+                  <div
+                    class="flex items-center p-1 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800"
+                    role="alert"
+                  >
+                    <svg
+                      class="flex-shrink-0 inline w-4 h-4 me-3"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+                    </svg>
+                    <span class="sr-only">Info</span>
+                    <div>
+                      <span class="font-medium">{errorMessage}</span>
+                    </div>
+                  </div>
+                )}
               </div>
               {signUpOrLogin && (
                 <>

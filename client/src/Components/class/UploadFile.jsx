@@ -38,9 +38,12 @@ function UploadFile({ classroomName, classroomid }) {
     const formData = new FormData();
     formData.append("fileType", fileType);
 
-    setLoading(true);
     const file = document.getElementById("fileInput");
-    console.log(file.files[0]);
+    if (file.files[0].size > 1048576) {
+      alert("File size should be less than 1Mb");
+      return;
+    }
+    setLoading(true);
     formData.append("file", file.files[0]);
     formData.append("fileName", file.files[0].name);
     formData.append("fileDescription", data.fileDescription);
@@ -66,9 +69,10 @@ function UploadFile({ classroomName, classroomid }) {
         navigate("/login");
       }
       if (res.success) {
-        if (res.warn) {
-          alert(res.warn);
-        }
+        // if (res.warn) {
+        //   alert(res.warn);
+        // }
+        navigate(0);
       } else {
         alert("SERVER ERROR COULD NOT UPLOAD FILE!");
       }
