@@ -60,7 +60,7 @@ router.post("/loginThroughPassword", async (req, res) => {
   if (!email || !password) {
     return res.json({ success: false, fetchError: "Invalid Credential!!" });
   }
-  const fetchedUser = await getUserByMailAndPassword(email, password);
+  const fetchedUser = await getUserByMailAndPassword(email, String(password));
 
   if (fetchedUser) {
     const { email, username, userid } = fetchedUser;
