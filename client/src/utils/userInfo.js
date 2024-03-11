@@ -3,6 +3,11 @@ export const getUserName = () => {
   return username;
 };
 
+export const getUserId = () => {
+  const username = localStorage.getItem("userid");
+  return username;
+};
+
 export const getAuthToken = () => {
   const token = localStorage.getItem("authToken");
   return token;

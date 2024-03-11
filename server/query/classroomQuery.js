@@ -35,6 +35,7 @@ export const createFileTableQuery = (tableName) => `create table ${tableName} (
 export const createMSGTableQuery = (tableName) => `create table ${tableName} (
   msgId SERIAL unique,
   msgSenderID int,
+  msgSenderName varchar(50),
   msgContent varchar(500),
   sendDate DATE not null default now(),
   foreign key(msgSenderID) references USERS(userId) on delete cascade

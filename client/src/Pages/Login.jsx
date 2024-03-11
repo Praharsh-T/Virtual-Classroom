@@ -120,8 +120,9 @@ const Login = () => {
       }
     });
   }
-  function handleLoginSuceess({ token, username, picture, email }) {
+  function handleLoginSuceess({ token, username, picture, email, userid }) {
     localStorage.setItem("authToken", token);
+    localStorage.setItem("userid", userid);
     localStorage.setItem("userName", username);
     localStorage.setItem("picture", picture);
     localStorage.setItem("email", email);

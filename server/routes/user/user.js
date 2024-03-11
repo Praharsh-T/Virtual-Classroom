@@ -19,7 +19,7 @@ router.post("/login", async (req, res) => {
   if (fetchedUser) {
     const { email, username, userid } = fetchedUser;
     const token = createToken(email, username, userid);
-    return res.json({ success: true, token, username });
+    return res.json({ success: true, token, username, userid });
   }
 
   const newUser = await addNewUser(email, username);
@@ -28,7 +28,7 @@ router.post("/login", async (req, res) => {
     const { email, username, userid } = newUser;
     const token = createToken(email, username, userid);
 
-    return res.json({ success: true, token, username });
+    return res.json({ success: true, token, username, userid });
   }
 
   return res.json({ success: false, fetchError: "Internal Server ERROR!!" });
@@ -50,7 +50,7 @@ router.post("/signupThroughPassword", async (req, res) => {
     const { email, username, userid } = newUser;
     const token = createToken(email, username, userid);
 
-    return res.json({ success: true, token, username });
+    return res.json({ success: true, token, username, userid });
   }
   return res.json({ success: false, fetchError: "Internal Server ERROR!!" });
 });
@@ -65,7 +65,7 @@ router.post("/loginThroughPassword", async (req, res) => {
   if (fetchedUser) {
     const { email, username, userid } = fetchedUser;
     const token = createToken(email, username, userid);
-    return res.json({ success: true, token, username, email });
+    return res.json({ success: true, token, username, email, userid });
   }
   return res.json({ success: false, fetchError: "Internal Server ERROR!!" });
 });
