@@ -12,11 +12,16 @@ import {
 } from "../../query/classroomQuery.js";
 import { uploadFileToClassroomQuery } from "../../query/fileQuery.js";
 
-export const createNewClassRoom = async (classroomName, classroomLeaderid) => {
+export const createNewClassRoom = async (
+  classroomName,
+  classroomLeaderid,
+  description
+) => {
   try {
     const newClassRoom = await pool.query(createNewClassRoomQuery, [
       classroomName,
       classroomLeaderid,
+      String(description),
     ]);
     if (newClassRoom && newClassRoom.rows) {
       return newClassRoom.rows[0];

@@ -12,11 +12,11 @@ import {
 } from "../scripts/classroomQuery.js";
 const router = express.Router();
 
-
 router.post("/create", validateToken, async (req, res) => {
   const classRoomInfo = await createNewClassRoom(
     req.body.classroomName,
-    req.body.userInfo.userid
+    req.body.userInfo.userid,
+    req.body.description
   );
   if (classRoomInfo) {
     const FILETable = await createFileTableForClassRoom({
@@ -67,6 +67,5 @@ router.get("/student/getclasses", validateToken, async (req, res) => {
     res.json({ success: false, fetchError: "Server error" });
   }
 });
-
 
 export default router;

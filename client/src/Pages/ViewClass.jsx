@@ -21,7 +21,7 @@ function ViewClass() {
       <div class='sm:ml-64'>
         <div className='mt-14 '>
           <MiniNav classroomName={classroomName} />
-          <div className='flex gap-9'>
+          <div className='flex gap-9 ml-6 mt-10'>
             <CopyClipBoard
               url={`${CURRENT_SITE}/join/${classroomName}/${classroomid}/`}
             />

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import validator from "validator";
+import InputError from "../Components/Messages/InputError";
 const FETCH_BASE_URL = process.env.REACT_APP_FETCH_BASE_URL;
 const Login = () => {
   const [loginProgress, setLoginProgress] = useState(null);
@@ -150,19 +151,19 @@ const Login = () => {
       {/* login error details */}
       {/* <button>Login</button> */}
       <div
-        class='flex items-center justify-center h-screen bg-cover  '
+        class='flex items-center justify-center h-screen bg-cover'
         style={{ backgroundImage: `url('/images/login.jpg')` }}>
-        <div class='flex flex-col w-full max-w-md px-4 py-8  bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10'>
-          <h1 className='text-center text-blue-500 border border-b-2 border-blue-100 p-3 font-semibold font-serif text-2xl'>
+        <div class='flex flex-col w-full max-w-md px-4 py-8 bg-white rounded-lg shadow md:px-8 lg:px-10'>
+          <h1 class='text-center text-blue-500 border-b-2 border-blue-100 p-3 font-semibold text-2xl font-serif'>
             VIRTUAL CLASSROOM
           </h1>
-          <div class='self-center mb-6 text-xl font-light mt-4 text-gray-600 sm:text-2xl dark:text-white'>
+          <div class='self-center mt-4 mb-6 text-xl font-light text-gray-600 sm:text-2xl'>
             {signUpOrLogin ? "Create An Account" : "Login To Your Account"}
           </div>
           <button
             onClick={login}
             type='button'
-            class='py-2 px-4 flex justify-center items-center  bg-blue-600 hover:bg-blue-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg '>
+            class='py-2 px-4 flex justify-center items-center bg-blue-600 hover:bg-blue-700 text-white w-full transition duration-200 text-center text-base font-semibold shadow-md focus:outline-none rounded-lg'>
             <svg
               width='20'
               height='20'
@@ -184,9 +185,9 @@ const Login = () => {
                     : "loginThroughPassword"
                 )
               }>
-              <div class='flex flex-col mb-2'>
-                <div class='flex relative '>
-                  <span class='rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm'>
+              <div class='flex flex-col mb-4'>
+                <div class='flex relative'>
+                  <span class='rounded-l-md inline-flex items-center px-3 border-t bg-white border-l border-b border-gray-300 text-gray-500 shadow-sm text-sm'>
                     <svg
                       width='15'
                       height='15'
@@ -198,7 +199,7 @@ const Login = () => {
                   </span>
                   <input
                     type='text'
-                    class=' rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent'
+                    class='rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent'
                     placeholder='Your email'
                     onChange={(e) => {
                       setData({ ...data, email: e.target.value });
@@ -288,24 +289,7 @@ const Login = () => {
                     </svg>
                   </button>
                 </div>
-                {errorMessage && (
-                  <div
-                    class='flex items-center p-1 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800'
-                    role='alert'>
-                    <svg
-                      class='flex-shrink-0 inline w-4 h-4 me-3'
-                      aria-hidden='true'
-                      xmlns='http://www.w3.org/2000/svg'
-                      fill='currentColor'
-                      viewBox='0 0 20 20'>
-                      <path d='M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z' />
-                    </svg>
-                    <span class='sr-only'>Info</span>
-                    <div>
-                      <span class='font-medium'>{errorMessage}</span>
-                    </div>
-                  </div>
-                )}
+                {errorMessage && <InputError errorMessage={errorMessage} />}
               </div>
               {signUpOrLogin && (
                 <>
@@ -368,7 +352,7 @@ const Login = () => {
           <div
             class='flex items-center justify-center mt-6 cursor-pointer'
             onClick={() => setSignUpOrLogin(!signUpOrLogin)}>
-            <div class='inline-flex items-center text-xs font-thin text-center text-gray-500 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white'>
+            <div class='inline-flex items-center text-xs font-thin text-gray-500 hover:text-gray-700'>
               <span class='ml-2'>
                 {signUpOrLogin ? "Already Have An Account?" : "New User?"}
               </span>

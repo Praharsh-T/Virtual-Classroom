@@ -2,10 +2,10 @@ import React from "react";
 
 function Intro() {
   return (
-    <div class='max-w-4xl mx-auto px-10 py-4 bg-white rounded-lg shadow-lg'>
+    <div class='max-w-4xl mx-auto px-10 py-4 bg-white rounded-lg border border-blue-300 shadow-lg'>
       <div>
-        <span class='bg-green-100 font-mono text-green-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300'>
-          New User
+        <span class='bg-blue-100 font-mono text-blue-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300'>
+          Hi
         </span>
       </div>
       <div class='flex flex-col items-center justify-center py-12'>
@@ -13,9 +13,7 @@ function Intro() {
           src='https://cdn-icons-png.flaticon.com/128/907/907717.png'
           alt='Welcome Icon'
           class='w-24 h-24 mb-4'></img>
-        <h2 class='text-3xl font-semibold mb-2'>
-          Welcome to Our Virtual Classroom!
-        </h2>
+        <h2 class='text-3xl font-semibold mb-2'>Virtual Classroom</h2>
         <p class='text-gray-600 text-center text-lg leading-relaxed'>
           Embark on your educational journey with us and discover a world of
           possibilities through our innovative features tailored to enhance your

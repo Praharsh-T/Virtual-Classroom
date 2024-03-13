@@ -63,7 +63,9 @@ function ClassroomBadge({ classDetails }) {
             alt='Bonnie image'
           /> */}
           <Link
-            to={`/class/${classDetails.classroomname}/${classDetails.classroomid}/`}
+            to={{
+              pathname: `/class/${classDetails.classroomname}/${classDetails.classroomid}/`,
+            }}
             className='text-center'>
             <img
               class='w-full'
@@ -73,10 +75,10 @@ function ClassroomBadge({ classDetails }) {
               {classDetails && classDetails.classroomname}
             </h5>
             <div class='text-sm text-gray-500 dark:text-gray-400'>
-              {classDetails && getUserName()}
+              Class Leader : {classDetails && getUserName()}
             </div>
             <span class='text-sm text-gray-500 dark:text-gray-400'>
-              {classDetails && classDetails.classroomid}
+              ClassRoom ID : {classDetails && classDetails.classroomid}
             </span>
           </Link>
         </div>

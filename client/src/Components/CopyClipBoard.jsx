@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Joinclassnav from "./ClassSideBarComponents/Joinclassnav";
 
 function CopyClipBoard({ url }) {
   const [copied, setCopied] = useState(false);
@@ -14,7 +15,7 @@ function CopyClipBoard({ url }) {
   };
 
   return (
-    <div className=' bg-white border border-blue-300 rounded-lg shadow-md p-4 w-52 mt-11 ml-11'>
+    <div className=' bg-white border border-blue-300 rounded-lg shadow-md p-4 w-52 '>
       <h1 className='mb-2 text-lg font-semibold text-gray-900 dark:text-blue-800'>
         Class Code
       </h1>

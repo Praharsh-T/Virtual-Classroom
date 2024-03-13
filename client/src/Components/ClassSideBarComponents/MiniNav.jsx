@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ChatIcon,
   UserIcon,
@@ -6,7 +6,12 @@ import {
 } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 
+const styleOfLink =
+  "flex items-center dark:text-white hover:text-blue-500 transition-colors duration-300 ease-in-out no-underline";
+const styleOfActiveLink =
+  "flex items-center dark:text-white hover:text-blue-500 transition-colors duration-300 ease-in-out no-underline text-blue-500 font-semibold ";
 function MiniNav({ classroomName }) {
+  const [selected, setSeelected] = useState("");
   return (
     <nav className='bg-white dark:bg-gray-700 shadow-md'>
       <div className='max-w-screen-xl px-4 py-3 mx-auto'>
@@ -17,8 +22,8 @@ function MiniNav({ classroomName }) {
           <li className='px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:border-blue-500 transition-colors duration-300 ease-in-out last:border-r-0'>
             <Link
               to='./chat'
-              className='flex items-center dark:text-white hover:text-blue-500 transition-colors duration-300 ease-in-out no-underline' // Added dark:text-white and removed text-gray-800
-            >
+              className={selected === "CHATS" ? styleOfActiveLink : styleOfLink} // Added dark:text-white and removed text-gray-800
+              onClick={() => setSeelected("CHATS")}>
               <ChatIcon className='h-5 w-5 mr-1' />
               Chats
             </Link>
@@ -26,8 +31,10 @@ function MiniNav({ classroomName }) {
           <li className='px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:border-blue-500 transition-colors duration-300 ease-in-out last:border-r-0'>
             <Link
               to='./people'
-              className='flex items-center dark:text-white hover:text-blue-500 transition-colors duration-300 ease-in-out no-underline' // Added dark:text-white and removed text-gray-800
-            >
+              className={
+                selected === "PEOPLE" ? styleOfActiveLink : styleOfLink
+              }
+              onClick={() => setSeelected("PEOPLE")}>
               <UserIcon className='h-5 w-5 mr-1' />
               People
             </Link>
@@ -35,8 +42,8 @@ function MiniNav({ classroomName }) {
           <li className='px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:border-blue-500 transition-colors duration-300 ease-in-out'>
             <Link
               to='./notes'
-              className='flex items-center dark:text-white hover:text-blue-500 transition-colors duration-300 ease-in-out no-underline' // Added dark:text-white and removed text-gray-800
-            >
+              className={selected === "NOTES" ? styleOfActiveLink : styleOfLink}
+              onClick={() => setSeelected("NOTES")}>
               <ClipboardListIcon className='h-5 w-5 mr-1' />
               Notes
             </Link>

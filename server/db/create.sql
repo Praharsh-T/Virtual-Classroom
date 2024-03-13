@@ -12,6 +12,7 @@ create table CLASSROOM(
   classroomName varchar(50) not null,
   classroomLeaderid INT not null,
   studentCount INT default 1,
+  description varchar(100) not null,
   foreign key(classroomLeaderid) references USERS(userId) on delete cascade
 );
 

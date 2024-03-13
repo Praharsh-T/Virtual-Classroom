@@ -1,6 +1,6 @@
 // INSERT
 
-export const createNewClassRoomQuery = `INSERT INTO CLASSROOM(classroomName,classroomLeaderid) VALUES($1,$2) RETURNING *`;
+export const createNewClassRoomQuery = `INSERT INTO CLASSROOM(classroomName,classroomLeaderid,description) VALUES($1,$2,$3) RETURNING *`;
 
 export const addUserToClassroomQuery = `INSERT INTO ENROLLMENT(userId,classroomid) VALUES($1,$2) RETURNING *`;
 
