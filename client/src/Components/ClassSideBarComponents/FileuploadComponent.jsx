@@ -28,7 +28,7 @@ function FileuploadComponent({ classroomName, classroomid }) {
   }, []);
   return (
     <div>
-      <h1 className='text-center text-2xl font-bold text-blue-700 border-b-2 p-4 border-blue-700  mt-4'>
+      <h1 className='text-center text-2xl font-bold text-blue-700 border-b-2 p-4 border-blue-300  mt-4'>
         CHATS
       </h1>
       <div className='flex justify-center'>
@@ -52,14 +52,14 @@ function FileuploadComponent({ classroomName, classroomid }) {
             <input
               class='w-full bg-blue-100  placeholder-black py-5 px-3 rounded-xl'
               type='text'
-              placeholder='type your message here...'
+              placeholder='Type your Message here...'
               onChange={(e) => {
                 setNewMsg(e.target.value);
               }}
               value={newMsg}
             />
             <button
-              className='p-1 m-1 border-2 rounded-lg hover:bg-blue-100 border-blue-300'
+              className='p-4  ml-3 m-2 border-2 rounded-lg hover:bg-blue-200 shadow-md bg-blue-100  border-blue-300'
               onClick={() => {
                 HandleSend();
               }}>

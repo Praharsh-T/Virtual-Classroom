@@ -92,13 +92,15 @@ function UploadFile({ classroomName, classroomid }) {
   return (
     <div>
       {loading && <SmallLoader />}
-      <div className='mt-4'>
-        {data.filePath && <div>Selected file: {data.filePath}</div>}
-
+      <div className='mt-4 text-center justify-center'>
         <h1 className='text-2xl font-bold mt-4 text-blue-800 mb-4 text-center'>
           Notes
         </h1>
-
+        {data.filePath && (
+          <div className='border-2 bg-green-200 border-green-800 p-3 mr-11 ml-10 '>
+            Selected file: {data.filePath}
+          </div>
+        )}
         <div className='container mx-auto '>
           <div className='px-4 pt-4 border-l-1 border-gray-200 flex justify-center'>
             {/* <div className='p-5 mt-5 mb-11 mr-11 border rounded-lg border-gray-300'>
