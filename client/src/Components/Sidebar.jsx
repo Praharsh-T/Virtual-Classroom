@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 // import { useTheme } from "../utils/themecontext";
 
-const Sidebar = () => {
+const Sidebar = ({ sidebarState }) => {
   // const { isDarkTheme } = useTheme();
   const [selected, setSelected] = useState("");
   const styleOfLink =
@@ -10,7 +10,11 @@ const Sidebar = () => {
   const styleOfActiveLink =
     "flex items-center p-6 hover:bg-blue-200 border rounded-lg outline-none ring-2 ring-offset-2 ring-blue-500 transition duration-300 ease-in-out";
   return (
-    <aside className="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r-2 border-blue-200 sm:translate-x-0 dark:bg-gray-900 dark:border-gray-700">
+    <aside
+      className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r-2 border-blue-200 ${
+        !sidebarState ? "" : "translate-x-0"
+      } dark:bg-gray-900 dark:border-gray-700`}
+    >
       <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-900">
         <ul className="space-y-3 font-medium">
           <li

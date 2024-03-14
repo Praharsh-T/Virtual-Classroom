@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
 import { Route, Routes, useNavigate } from "react-router-dom";
@@ -9,8 +9,9 @@ import Intro from "./Intro";
 import { getAuthToken, getEmail } from "../utils/userInfo";
 
 function Home() {
-  function openSideBar() {
-    console.log("open");
+  const [closeSidebar, setCloseSidbar] = useState(true);
+  function toggleSidebar() {
+    setCloseSidbar(!closeSidebar);
   }
   const navigate = useNavigate();
   useEffect(() => {
@@ -20,8 +21,8 @@ function Home() {
   }, []);
   return (
     <div>
-      <Navbar openSideBar={openSideBar} />
-      <Sidebar />
+      <Navbar toggleSidebar={toggleSidebar} />
+      <Sidebar sidebarState={closeSidebar} />
       {/* <div>
       </div> */}
       <div class="p-4  sm:ml-64">
