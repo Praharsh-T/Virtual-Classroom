@@ -5,7 +5,6 @@ import { getOwnedClassInfoFromSession } from "../../utils/classInfo";
 function MiniBanner() {
   const { classroomName, classroomid } = useParams();
   const classDetails = getOwnedClassInfoFromSession(classroomid);
-  console.log(classDetails);
   return (
     <div className='container px-4 mx-auto border border-blue-300 rounded-lg mr-6 shadow-lg p-4'>
       <div className='h-full rounded-md shadow-lg bg-white'>

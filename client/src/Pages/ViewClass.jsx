@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes, useParams } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
@@ -14,14 +14,18 @@ const CURRENT_SITE = process.env.REACT_APP_CURRENT_SITE;
 
 function ViewClass() {
   const { classroomName, classroomid } = useParams();
+  const [closeSidebar, setCloseSidbar] = useState(true);
+  function toggleSidebar() {
+    setCloseSidbar(!closeSidebar);
+  }
   return (
     <div>
-      <Navbar />
-      <Sidebar />
-      <div class='sm:ml-64'>
-        <div className='mt-14 '>
+      <Navbar toggleSidebar={toggleSidebar} />
+      <Sidebar sidebarState={closeSidebar} />
+      <div class="sm:ml-64">
+        <div className="mt-14 ">
           <MiniNav classroomName={classroomName} />
-          <div className='flex gap-9 ml-6 mt-10'>
+          <div className="flex gap-9 ml-6 mt-10">
             <CopyClipBoard
               url={`${CURRENT_SITE}/join/${classroomName}/${classroomid}/`}
             />
@@ -29,10 +33,10 @@ function ViewClass() {
           </div>
           <InfoTab />
         </div>
-        <div class='p-4 rounded-lg dark:border-gray-700'>
+        <div class="p-4 rounded-lg dark:border-gray-700">
           <Routes>
             <Route
-              path='/notes'
+              path="/notes"
               element={
                 <ClassFiles
                   classroomName={classroomName}
@@ -41,7 +45,7 @@ function ViewClass() {
               }
             />
             <Route
-              path='/chat'
+              path="/chat"
               element={
                 <FileuploadComponent
                   classroomName={classroomName}
@@ -50,7 +54,7 @@ function ViewClass() {
               }
             />
             <Route
-              path='/people'
+              path="/people"
               element={
                 <People
                   classroomName={classroomName}

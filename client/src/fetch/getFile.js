@@ -1,6 +1,12 @@
 import { getAuthToken } from "../utils/userInfo";
 
 const FETCH_BASE_URL = process.env.REACT_APP_FETCH_BASE_URL;
+
+export const getFormatedDate = (date) => {
+  const d = new Date(date);
+  return d.toLocaleDateString();
+};
+
 export const getFilesOfClass = async (classroomName, classroomid) => {
   const token = getAuthToken();
   try {
@@ -14,9 +20,7 @@ export const getFilesOfClass = async (classroomName, classroomid) => {
     });
     const filesList = await files.json();
     const filesArray = filesList.files.map((file) => {
-      const d = new Date(file.uploaddate);
-
-      return { ...file, uploaddate: d.toLocaleDateString() };
+      return { ...file, uploaddate: getFormatedDate(file.uploaddate) };
     });
     return filesArray || [];
   } catch (e) {

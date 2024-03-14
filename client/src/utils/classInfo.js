@@ -44,7 +44,7 @@ export const getOwnedClassInfoFromSession = (classRoomId) => {
   try {
     const ownedClass = sessionStorage.getItem("ownedClass");
     const ownedClassJson = JSON.parse(ownedClass);
-    console.log(classRoomId);
+    // console.log(classRoomId);
     return ownedClassJson.find((details) => details.classroomid == classRoomId);
   } catch (e) {
     return {
