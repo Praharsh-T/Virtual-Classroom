@@ -85,16 +85,16 @@ function CreateClass() {
   ) : (
     <div>
       <Joinclassnav />
-      <section class='h-screen flex items-center justify-center bg-white'>
-        <div class='max-w-md bg-white p-8 rounded-lg shadow-lg border border-blue-300'>
+      <section class='h-screen flex items-center justify-center bg-opacity-20 bg-blue-200'>
+        <div class='max-w-md bg-white p-8 rounded-lg shadow-lg border-2 border-blue-400'>
           <div class='mb-5 text-center text-black'>
-            <h1 class='text-2xl font-semibold font-serif p-2 tracking-widest  border-b-2  border-blue-300'>
+            <h1 class='text-2xl  font-semibold font-serif p-2 tracking-widest  border-b-2  border-blue-300'>
               CREATE CLASS{" "}
             </h1>
           </div>
           {loading && <SmallLoader />}
           <form>
-            <div class='flex flex-col items-center justify-center space-y-6'>
+            <div class='flex flex-col items-center  justify-center space-y-6'>
               <span>
                 <input
                   class='w-80 appearance-none rounded-full border-2 border-blue-400 placeholder-blue-800 bg-blue-50 p-2 px-4 focus:bg-blue-100 '
