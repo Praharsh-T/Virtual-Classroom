@@ -5,9 +5,9 @@ import { getFormatedDate } from "../fetch/getFile";
 function JoinedClassRoomBadge({ classDetails }) {
   const [openSetting, setOpenSetting] = useState(false);
   return (
-    <div className='inline-block w-1/3 md:w-1/4 p-6 bg-white bg-opacity-10 backdrop-filter  border-2 border-blue-500 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-1 hover:scale-105 m-2'>
-      <div class=' w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'>
-        <div class='flex flex-col items-center pb-10'>
+    <div class='inline-block w-full md:w-1/3 lg:w-1/4 p-6 bg-white bg-opacity-10 backdrop-filter border-2 border-blue-500 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-1 hover:scale-105 m-2'>
+      <div class='w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'>
+        <div class='flex flex-col items-center pb-10 relative'>
           <div class='absolute w-full top-0 right-0 flex flex-col'>
             <button
               onClick={(e) => {
@@ -57,11 +57,6 @@ function JoinedClassRoomBadge({ classDetails }) {
               </ul>
             </div>
           </div>
-          {/* <img
-            class='w-24 h-24 mb-3shadow-lg'
-            src='/docs/images/people/profile-picture-3.jpg'
-            alt='Bonnie image'
-          /> */}
           <Link
             to={`/class/${classDetails.classroomname}/${classDetails.classroomid}/`}
             className='text-center'>
@@ -70,7 +65,7 @@ function JoinedClassRoomBadge({ classDetails }) {
               src='/Images/bckimg.jpg'
               alt='Sunset in the mountains'></img>
             <h5 class='mb-1 text-xl font-medium text-gray-900 dark:text-white'>
-              Name: {classDetails && classDetails.classroomname}
+              {classDetails && classDetails.classroomname}
             </h5>
             <div class='text-sm text-gray-500 dark:text-gray-400'>
               ID: {classDetails && classDetails.classroomid}
@@ -81,18 +76,6 @@ function JoinedClassRoomBadge({ classDetails }) {
           </Link>
         </div>
       </div>
-
-      {/* <div className="text-center mb-4">
-        <h2 className="text-lg lg:text-xl font-bold tracking-tight text-gray-800">
-          
-        </h2>
-        <span className="text-sm text-gray-600 block">
-          {}
-        </span>
-        <span className="text-sm text-gray-600 block">
-          ID: 
-        </span>
-      </div> */}
     </div>
   );
 }
