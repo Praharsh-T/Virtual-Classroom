@@ -2,7 +2,7 @@ import React from "react";
 
 function InfoTab() {
   return (
-    <div class='border mt-11 mr-9 ml-9 md:mx-auto border-blue-300 rounded-lg p-4 flex flex-col md:flex-row items-center justify-between'>
+    <div class='border mt-11 mx-4   md:mx-auto border-blue-300 rounded-lg p-4 flex flex-col md:flex-row items-center justify-between'>
       <div class='flex items-center'>
         <div class='w-10 h-12 flex-none border border-blue-300 p-1'>
           <svg
