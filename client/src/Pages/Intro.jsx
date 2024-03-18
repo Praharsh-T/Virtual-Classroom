@@ -8,12 +8,12 @@ function Intro() {
           Hi
         </span>
       </div>
-      <div class='flex flex-col items-center justify-center py-12'>
+      <div class='flex flex-col items-center justify-center p-5 py-12'>
         <img
-          src='https://cdn-icons-png.flaticon.com/128/907/907717.png'
-          alt='Welcome Icon'
-          class='w-24 h-24 mb-4'></img>
-        <h2 class='text-3xl font-semibold mb-2'>Virtual Classroom</h2>
+          src='../images/logowhitebck.png'
+          alt='Classroom Icon'
+          class='w-60 h-60 rounded-lg mb-2  bg-white'></img>
+        {/* <h2 class='text-3xl font-semibold mb-2'>Virtual Classroom</h2> */}
         <p class='text-gray-600 text-center text-lg leading-relaxed'>
           Embark on your educational journey with us and discover a world of
           possibilities through our innovative features tailored to enhance your

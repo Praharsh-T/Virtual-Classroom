@@ -22,10 +22,10 @@ function ViewClass() {
     <div>
       <Navbar toggleSidebar={toggleSidebar} />
       <Sidebar sidebarState={closeSidebar} />
-      <div class="sm:ml-64">
-        <div className="mt-14 ">
+      <div class='sm:ml-64'>
+        <div className='mt-14 '>
           <MiniNav classroomName={classroomName} />
-          <div className="flex gap-9 ml-6 mt-10">
+          <div className='flex gap-9 ml-6 mt-10'>
             <CopyClipBoard
               url={`${CURRENT_SITE}/join/${classroomName}/${classroomid}/`}
             />
@@ -33,10 +33,10 @@ function ViewClass() {
           </div>
           <InfoTab />
         </div>
-        <div class="p-4 rounded-lg dark:border-gray-700">
+        <div class='p-4 rounded-lg dark:border-gray-700'>
           <Routes>
             <Route
-              path="/notes"
+              path='/notes'
               element={
                 <ClassFiles
                   classroomName={classroomName}
@@ -45,7 +45,7 @@ function ViewClass() {
               }
             />
             <Route
-              path="/chat"
+              path='/chat'
               element={
                 <FileuploadComponent
                   classroomName={classroomName}
@@ -54,7 +54,7 @@ function ViewClass() {
               }
             />
             <Route
-              path="/people"
+              path='/people'
               element={
                 <People
                   classroomName={classroomName}

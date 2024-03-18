@@ -73,8 +73,12 @@ function JoinClass() {
       <Joinclassnav />
 
       <div className='h-screen justify-center items-center flex flex-col '>
-        <div className='justify-center items-center flex flex-col p-10 border-2 rounded border-blue-100'>
-          <h2 className='text-lg font-semibold mb-4'>Join Class</h2>
+        <div className='justify-center items-center flex flex-col p-10 border-2 rounded-lg bg-gradient-to-br from-blue-100 to-blue-400 border-blue-300'>
+          <h2 className='text-xl font-semibold mb-4'>Join Class</h2>
+          <h3 className='text-lg font-semibold mb-4'>
+            Click on the button below to Join the Class.
+          </h3>
+
           {validUrl ? (
             <div>
               <button
