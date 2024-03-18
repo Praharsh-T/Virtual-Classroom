@@ -153,7 +153,7 @@ const Login = () => {
       <div
         class='flex items-center justify-center h-screen bg-cover'
         style={{ backgroundImage: `url('/images/login.jpg')` }}>
-        <div class='flex flex-col w-full max-w-md px-4 py-8 bg-white rounded-lg shadow md:px-8 lg:px-10'>
+        <div class='flex flex-col w-full max-w-md px-4 py-8 bg-white border-2 border-blue-500 rounded-lg shadow md:px-8 lg:px-10'>
           <h1 class='text-center text-blue-500 border-b-2 border-blue-100 p-3 font-semibold text-2xl font-serif'>
             VIRTUAL CLASSROOM
           </h1>
