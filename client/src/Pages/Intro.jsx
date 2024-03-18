@@ -10,7 +10,7 @@ function Intro() {
       </div>
       <div class="flex flex-col items-center justify-center p-5 py-12">
         <img
-          src="./Images/logoedited.png"
+          src="/Images/logowhitebck.png"
           alt="Classroom Icon"
           class="w-60 h-60 rounded-lg mb-2  bg-white"
         ></img>
