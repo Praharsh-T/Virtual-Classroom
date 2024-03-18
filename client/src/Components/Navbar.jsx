@@ -30,7 +30,7 @@ function Navbar({ toggleSidebar }) {
 
             <Link to="/" className="flex items-center ms-2 md:me-24">
               <img
-                src="../images/logoedited.png"
+                src="./Images/logoedited.png"
                 className="h-10 w-10 me-3 rounded-lg   "
                 alt="Classroom Logo"
               />
